@@ -29,7 +29,7 @@ set up rendering to handlebars (this was in the controller previously so ??)
 ### Set up authentication with NPM Passport (Facebook, Twitter, Google options?)
 
 ## Checkout spec images folder
-[image 1](/spec_images/IMG1.JPG)
-[image 1](/spec_images/IMG2.JPG)
-[image 1](/spec_images/IMG3.JPG)
-[image 1](/spec_images/IMG4.JPG)
+* [image 1](/spec_images/IMG1.JPG)
+* [image 2](/spec_images/IMG2.JPG)
+* [image 3](/spec_images/IMG3.JPG)
+* [image 4](/spec_images/IMG4.JPG)
