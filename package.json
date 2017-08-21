@@ -1,0 +1,29 @@
+{
+  "name": "project-two-group",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jliip51/project-two-group.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jliip51/project-two-group/issues"
+  },
+  "homepage": "https://github.com/jliip51/project-two-group#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "jquery": "^3.2.1",
+    "mysql": "^2.14.1",
+    "passport": "^0.4.0",
+    "sequelize": "^4.6.0"
+  }
+}
