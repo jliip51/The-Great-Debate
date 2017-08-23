@@ -1,5 +1,4 @@
 
-
 var express = require('express');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
@@ -24,12 +23,13 @@ app.engine("handlebars", handleBars({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
-var routes = require("./controllers");
-app.use('/', routes);
+// var routes = require("./controllers");
+// app.use('/', routes);
 
 
-db.sequelize.sync({}).then(function() {
-	app.listen(PORT, function() {
+db.sequelize.sync({ force: true }).then(function() {
+	app.listen(PORT, function(err) {
+		if (err) throw err;
 		console.log("Listening on port: " + PORT);
 	});
 });

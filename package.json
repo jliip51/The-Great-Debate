@@ -22,7 +22,9 @@
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
     "jquery": "^3.2.1",
+    "method-override": "^2.3.9",
     "mysql": "^2.14.1",
+    "mysql2": "^1.4.1",
     "passport": "^0.4.0",
     "sequelize": "^4.6.0"
   }
