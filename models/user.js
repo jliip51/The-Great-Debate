@@ -21,12 +21,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       type: DataTypes.STRING
     }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        User.hasMany(models.Posts);
-      }
-    }
   });
+      User.associate = function(models) {
+        User.hasMany(models.Posts, {
+          onDelete: 'CASCADE'
+        });
+      };
   return User;
 };

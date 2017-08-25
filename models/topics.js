@@ -7,13 +7,12 @@ module.exports = function(sequelize, DataTypes) {
     question: DataTypes.STRING,
     start: DataTypes.DATE,
     expired: DataTypes.BOOLEAN,
-    post_count: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Topics.hasMany(models.Posts);
-      }
-    }
+    post_count: DataTypes.INTEGER,
   });
+   Topics.associate = function(models) {
+        Topics.hasMany(models.Posts, {
+          onDelete: 'CASCADE'
+        });
+      };
   return Topics;
 };

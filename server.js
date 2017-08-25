@@ -23,8 +23,8 @@ app.engine("handlebars", handleBars({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
-// var routes = require("./controllers");
-// app.use('/', routes);
+var routes = require("./controllers/controller.js");
+app.use('/', routes);
 
 
 db.sequelize.sync({ force: true }).then(function() {

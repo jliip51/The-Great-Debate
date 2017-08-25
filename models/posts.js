@@ -7,23 +7,13 @@ module.exports = function(sequelize, DataTypes) {
     position: DataTypes.BOOLEAN,
     body: DataTypes.TEXT,
     links: DataTypes.TEXT
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Posts.belongsTo(models.User, {
-          foreignKey: 'UserId',
-          onDelete: 'CASCADE'
-        });
-      },
-      //Look into whether we can support polymorphic associations. Don't think Sequelize can support.
-
-      // associate: function(models) {
-      //   Posts.belongsTo(models.Topics, {
-      //     foreignKey: 'TopicsId',
-      //     onDelete: 'CASCADE'
-      //   });
-      // }
-    }
   });
+    Posts.associate = function(models) {
+      Posts.belongsTo(models.User, {
+      });
+
+      Posts.belongsTo(models.Topics, {
+      });
+    };
   return Posts;
 };
