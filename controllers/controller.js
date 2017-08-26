@@ -29,7 +29,7 @@ var createPosts = function() {
 };
 
 
-router.get("/", function(req) {
+router.get("/", function(req, res) {
   db.Posts.findAll({}).then(function(data) {
     var hdlbars = {
       posts: data
