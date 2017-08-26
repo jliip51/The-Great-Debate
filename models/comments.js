@@ -6,11 +6,11 @@ module.exports = function(sequelize, DataTypes) {
     body: {
       allowNull: false,
       type: DataTypes.TEXT
-    }
+    },
     votes: {
       defaultValue: 0,
       type: DataTypes.INTEGER
-    }
+    },
     links: DataTypes.TEXT
   });
     Comments.associate = function(models) {
