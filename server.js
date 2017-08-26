@@ -25,6 +25,7 @@ app.set("view engine", "handlebars");
 
 var routes = require("./controllers/controller.js");
 app.use('/', routes);
+app.use('/add', routes);
 
 
 db.sequelize.sync({ force: true }).then(function() {
