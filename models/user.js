@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
       User.associate = function(models) {
-        User.hasMany(models.Posts, {
+        User.hasMany(models.Comments, {
           onDelete: 'CASCADE'
         });
       };

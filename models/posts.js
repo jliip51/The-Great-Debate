@@ -3,17 +3,17 @@
 //Need to add attributes (i.e. AllowNull, Validate) to model definition.
 module.exports = function(sequelize, DataTypes) {
   var Posts = sequelize.define('Posts', {
-    headline: DataTypes.STRING,
-    position: DataTypes.BOOLEAN,
-    body: DataTypes.TEXT,
-    links: DataTypes.TEXT
+    category: DataTypes.STRING,
+    topic: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    start: DataTypes.DATE,
+    expired: DataTypes.BOOLEAN,
+    comment_count: DataTypes.INTEGER,
   });
-    Posts.associate = function(models) {
-      Posts.belongsTo(models.User, {
-      });
-
-      Posts.belongsTo(models.Topics, {
-      });
-    };
+   Posts.associate = function(models) {
+        Posts.hasMany(models.Comments, {
+          onDelete: 'CASCADE'
+        });
+      };
   return Posts;
 };
