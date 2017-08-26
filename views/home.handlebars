@@ -20,21 +20,20 @@
         <button type="submit" class="btn btn-success">Sign in</button>
       </form>
     </div>
-    <!--/.navbar-collapse -->
-  </div>
-</nav>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>The Great DB8</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="devs.html" role="button">Check out the Devs</a></p>
+      </div>
+    </div>
 
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="container">
-    <h1>Hello, world!</h1>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-  </div>
-</div>
+<div>
+{{#each posts}}
+  <h1>{{this.body}}</h1>
 
-{{#each}}
-  <!-- <div class="container">
+
+    <!-- <div class="container">
 
       <div class="row">
         <div class="col-md-4">
@@ -53,9 +52,9 @@
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div> -->
-{{/each}}
-
-<hr>
+  {{/each}}
+</div>
+      <hr>
 
 <footer>
   <p>&copy; 2016 Company, Inc.</p>
