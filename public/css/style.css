@@ -11,3 +11,17 @@
 	text-align: center;
 	border: 2px !important;
 }
+
+.pic {
+	border-radius: 5px;
+}
+
+.devInfo {
+	margin-top: 40px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.center {
+	text-align: center;
+}
