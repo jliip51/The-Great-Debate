@@ -6,9 +6,6 @@ module.exports = function(sequelize, DataTypes) {
     body: {
       allowNull: false,
       type: DataTypes.TEXT
-      validate: {
-        len: [1]
-      }
     }
     votes: {
       defaultValue: 0,
