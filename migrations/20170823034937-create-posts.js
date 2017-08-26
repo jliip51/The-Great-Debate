@@ -8,17 +8,23 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      headline: {
+      category: {
         type: Sequelize.STRING
       },
-      position: {
+      topic: {
+        type: Sequelize.STRING
+      },
+      description: {
+        type: Sequelize.TEXT
+      },
+      start: {
+        type: Sequelize.DATE
+      },
+      expired: {
         type: Sequelize.BOOLEAN
       },
-      body: {
-        type: Sequelize.TEXT
-      },
-      links: {
-        type: Sequelize.TEXT
+      comment_count: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

@@ -1,26 +1,20 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Topics', {
+    return queryInterface.createTable('Comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      category: {
-        type: Sequelize.STRING
+      body: {
+        type: Sequelize.TEXT
       },
-      question: {
-        type: Sequelize.STRING
+      links: {
+        type: Sequelize.TEXT
       },
-      start: {
-        type: Sequelize.DATE
-      },
-      expired: {
-        type: Sequelize.BOOLEAN
-      },
-      post_count: {
+      votes: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -34,6 +28,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Topics');
+    return queryInterface.dropTable('Comments');
   }
 };

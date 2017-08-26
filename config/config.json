@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Set Password",
+    "password": "password",
     "database": "GR8DB8",
     "host": "127.0.0.1",
     "dialect": "mysql"
