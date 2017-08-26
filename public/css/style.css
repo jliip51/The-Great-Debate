@@ -1,0 +1,27 @@
+.jumbotron {
+	background-color: blue;
+	margin-left: 200px;
+	margin-right: 200px;
+	border-radius: 5px;
+	margin-top: 80px;
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+	border: 2px !important;
+}
+
+.pic {
+	border-radius: 5px;
+}
+
+.devInfo {
+	margin-top: 40px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.center {
+	text-align: center;
+}
