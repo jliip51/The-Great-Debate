@@ -28,6 +28,7 @@ app.use('/', routes);
 app.use('/add', routes);
 app.use('/signup', routes);
 app.use('/signin', routes);
+app.use('/about', routes);
 
 
 db.sequelize.sync({force: false}).then(function() {

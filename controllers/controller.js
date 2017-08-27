@@ -52,6 +52,10 @@ router.get("/", function(req, res) {
   });
 });
 
+router.get("/about", function(req, res) {
+    res.render("aboutdevelopers");
+});
+
 router.post("/add", function(req, res) {
     db.Comment.create({
     }).then(function(resp) {
