@@ -1,5 +1,20 @@
+/*animated background css*/
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
+body 	{
+	background-image: url("/images/bkgrnd.png");
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+
+	animation: animatedBackground 60s linear infinite;
+}
+/*end animated background css*/
+
 .jumbotron {
-	background-color: blue;
+	background-color: rgba(0,0,0,0.4);   /*rgba color for transparent jumbotron*/
 	margin-left: 200px;
 	margin-right: 200px;
 	border-radius: 5px;
@@ -24,4 +39,23 @@
 
 .center {
 	text-align: center;
+}
+
+/*Dropdown list items styling*/
+.cat-drop {
+	margin-left: 5px;
+	font-size: 16px;
+}
+
+/*Top 3 Posts box styling*/
+.post-row {
+	display: flex;
+	justify-content: space-around;
+}
+
+.post-blocks {
+	background-color: lightgray;
+	margin: 0 10px 0 10px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

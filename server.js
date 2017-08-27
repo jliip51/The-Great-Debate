@@ -8,7 +8,7 @@ var path = require('path');
 
 
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 
 app.use(express.static(__dirname + "/public"));
@@ -25,9 +25,11 @@ app.set("view engine", "handlebars");
 
 var routes = require("./controllers/controller.js");
 app.use('/', routes);
+app.use('/add', routes);
+app.use('/login', routes);
 
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({force: true}).then(function() {
 	app.listen(PORT, function(err) {
 		if (err) throw err;
 		console.log("Listening on port: " + PORT);

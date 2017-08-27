@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     links: DataTypes.TEXT
   });
     Comments.associate = function(models) {
-      Comments.belongsTo(models.User, {
+      Comments.belongsTo(models.Users, {
       });
 
       Comments.belongsTo(models.Posts, {
