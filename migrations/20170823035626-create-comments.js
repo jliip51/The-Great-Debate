@@ -9,12 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       body: {
-        type: Sequelize.TEXT
+        allowNull: false,
+        type: Sequelize.TEXT,
+        len: [1]
       },
       links: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       votes: {
+        defaultValue: 0,
         type: Sequelize.INTEGER
       },
       createdAt: {
