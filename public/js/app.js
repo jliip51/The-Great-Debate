@@ -31,11 +31,13 @@ $(document).ready(function() {
   function handleUserFormSignUp(event) {
     event.preventDefault();
     console.log('working');
+    console.log(newUser);
     var newUser = {
       username: $('#username').val().trim(),
-      email: $('#email').val().trim(),
-      password: $('#password').val().trim()
+      email: $('#inputEmail3').val().trim(),
+      password: $('#inputPassword3').val().trim()
     };
+        console.log(newUser);
     $.post("/signup", newUser).then(function(data) {
       console.log(data);
     });

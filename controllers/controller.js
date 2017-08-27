@@ -5,6 +5,7 @@ var db = require('../models');
 var router = express.Router();
 
 router.post("/signup", function(req, res) {
+  console.log(req.body);
   db.Users.create({
     username: req.body.username,
     email: req.body.email,
