@@ -37,7 +37,7 @@ $(document).ready(function() {
       email: $('#inputEmail3').val().trim(),
       password: $('#inputPassword3').val().trim()
     };
-        console.log(newUser);
+    console.log(newUser);
     $.post("/signup", newUser).then(function(data) {
       console.log(data);
     });
