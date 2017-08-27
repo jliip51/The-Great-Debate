@@ -22,12 +22,32 @@ $(document).ready(function() {
       email: $('#email').val().trim(),
       password: $('#password').val().trim()
     };
-    console.log(userCreds);
-    $.get("/signin", userCreds).then(function(data) {
-      console.log(data); //send to passport?//
-    });
+    // When the form is submitted, we validate there's an email and password entered
+    if (!userCreds.email || !userCreds.password) {
+      return;
+    }
+    
+    // If we have an email and password we run the loginUser function and clear the form
+    loginUser(userCreds.email, userCreds.password);
+    $('#email').val("");
+    $('#password').val("");
+    
+    // console.log(userCreds);
+    // $.post("/signin", userCreds).then(function(data) {
+    //   console.log(data); //send to passport?//
+    // });
   };
-
+  function loginUser(email, password) {
+    $.post("/api/login", {
+      email: email,
+      password: password
+    }).then(function(data) {
+      console.log(data);
+      // If there's an error, log the error
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
   function handleUserFormSignUp(event) {
     event.preventDefault();
     console.log('working');

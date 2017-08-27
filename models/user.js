@@ -33,10 +33,10 @@ module.exports = function(sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     cb(null, options);
   });
-      Users.associate = function(models) {
-        Users.hasMany(models.Comments, {
-          onDelete: 'CASCADE'
-        });
-      };
+  Users.associate = function(models) {
+    Users.hasMany(models.Comments, {
+      onDelete: 'CASCADE'
+    });
+  };
   return Users;
 };
