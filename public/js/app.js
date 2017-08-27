@@ -26,10 +26,10 @@ $(document).ready(function() {
     if (!userCreds.email || !userCreds.password) {
       return;
     }
-    
+
     $('#email').val("");
     $('#password').val("");
-    
+
     console.log(userCreds);
     $.get("/signin", userCreds).then(function(data) {
       console.log(data); //send to passport?//
@@ -38,7 +38,6 @@ $(document).ready(function() {
   function handleUserFormSignUp(event) {
     event.preventDefault();
     console.log('working');
-    console.log(newUser);
     var newUser = {
       username: $('#username').val().trim(),
       email: $('#inputEmail3').val().trim(),
