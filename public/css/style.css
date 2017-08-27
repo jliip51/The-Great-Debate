@@ -1,5 +1,5 @@
 .jumbotron {
-	background-color: blue;
+	/*background-color: blue;*/
 	margin-left: 200px;
 	margin-right: 200px;
 	border-radius: 5px;
@@ -24,4 +24,15 @@
 
 .center {
 	text-align: center;
+}
+
+.post-row {
+	display: flex;
+	justify-content: space-around;
+}
+
+.post-blocks {
+	background-color: lightgray;
+	margin: 0 10px 0 10px;
+	border-radius: 5px;
 }

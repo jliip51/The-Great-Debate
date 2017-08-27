@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
+  var Users = sequelize.define('Users', {
     id: {
       allowNull: false,
       primaryKey: true,
@@ -22,10 +22,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }
   });
-      User.associate = function(models) {
-        User.hasMany(models.Comments, {
+      Users.associate = function(models) {
+        Users.hasMany(models.Comments, {
           onDelete: 'CASCADE'
         });
       };
-  return User;
+  return Users;
 };

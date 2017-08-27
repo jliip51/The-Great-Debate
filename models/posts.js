@@ -8,12 +8,12 @@ module.exports = function(sequelize, DataTypes) {
     description: DataTypes.TEXT,
     start: DataTypes.DATE,
     expired: DataTypes.BOOLEAN,
-    comment_count: DataTypes.INTEGER,
+    comment_count: DataTypes.INTEGER
   });
    Posts.associate = function(models) {
         Posts.hasMany(models.Comments, {
           onDelete: 'CASCADE'
         });
-      };
+  };
   return Posts;
 };

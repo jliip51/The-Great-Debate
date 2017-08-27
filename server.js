@@ -26,9 +26,10 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/controller.js");
 app.use('/', routes);
 app.use('/add', routes);
+app.use('/login', routes);
 
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({force: false}).then(function() {
 	app.listen(PORT, function(err) {
 		if (err) throw err;
 		console.log("Listening on port: " + PORT);
