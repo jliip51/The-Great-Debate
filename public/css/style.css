@@ -69,8 +69,17 @@ body 	{
 	text-align: center;
 	color: white;
 	font-size: 50px;
-<<<<<<< HEAD
 }
+
+#postcursive {
+	margin-top: 150px;
+	margin-bottom: 25px;
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: black;
+	font-size: 50px;
+}
+
 
 #meetthe {
 	margin-top: 40px;
@@ -92,7 +101,6 @@ footer {
 
 .navbar {
 	font-family: 'Yellowtail', cursive;
-=======
 }
 
 #meetthe {
@@ -106,7 +114,6 @@ footer {
 
 footer {
 	color: white;
->>>>>>> origin/development
 }
 
 /*footer {

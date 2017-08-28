@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "BlueCar2",
-=======
-    "password": "",
->>>>>>> fd4d182858702e38721a070b7ead66c1b095bf06
+    "password": "WIguIw2bv$$",
     "database": "gr8db8",
     "host": "127.0.0.1",
     "dialect": "mysql"
