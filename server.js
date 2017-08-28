@@ -24,11 +24,23 @@ app.engine("handlebars", handleBars({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 var routes = require("./controllers/controller.js");
+//Home Route//
 app.use('/', routes);
+//Add Route//
 app.use('/add', routes);
+//Sign In and Sign Up routes//
 app.use('/signup', routes);
 app.use('/signin', routes);
+//About Developers Route//
 app.use('/about', routes);
+//Admin Create Post Route//
+app.use('/admin', routes);
+//View All Available Posts Route//
+app.use('/posts', routes);
+//View All Posts Within Specific Category//
+app.use('/posts/:category', routes);
+//View Single Post Route//(For Calling single post to be reviewed and commented on)
+app.use('/post/:id', routes);
 
 
 db.sequelize.sync({force: false}).then(function() {
