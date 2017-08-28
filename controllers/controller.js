@@ -84,6 +84,16 @@ router.get("/about", function(req, res) {
   res.render("aboutdevelopers");
 });
 
+router.get("/post/:id", function(req, res) {
+  db.Posts.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(hbsObj) {
+    res.render("comment-submit", hbsObj);
+  })
+});
+
 router.post("/add", function(req, res) {
   db.Comment.create({}).then(function(resp) {
     console.log(resp);

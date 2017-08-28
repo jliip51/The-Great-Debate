@@ -87,21 +87,15 @@
 <h2 id="live">Live Topics:</h2>
 <div class="container">
   <div class="row post-row">
+
     {{#each post}}
       <div class="col-md-4 center post-blocks">
         <h3>{{this.topic}}</h3>
         <p>{{this.description}}</p>
-        <p><a class="btn btn-success" href="#" role="button">Comment &raquo;</a></p>
+        <p><a class="btn btn-success" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
       </div>
-      <!-- <div class="col-sm-3">
-      <div class="card text-center">
-        <div class="card-body">
-          <h4 class="card-title">{{this.topic}}</h4>
-          <p class="card-text">{{this.description}}</p>
-          <a href="#" class="btn btn-primary">Add Comment</a>
-        </div>
-      </div> -->
     {{/each}}
+
   </div>
 </div>
 <hr>
@@ -110,4 +104,3 @@
   <p>&copy; 2017 The Great DB8</p>
 </footer>
 </div>
-<!-- /container -->
