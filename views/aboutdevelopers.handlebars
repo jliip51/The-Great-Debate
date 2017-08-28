@@ -6,34 +6,34 @@
         <h4 class="modal-title" id="myModalLabel">Register Here</h4>
       </div>
       <form id="signUpForm">
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
-          <div class="col-sm-10">
-            <input type="name" class="form-control" id="username" placeholder="username">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+              <input type="name" class="form-control" id="username" placeholder="username">
+            </div>
           </div>
-        </div>
-        <br><br>
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          <br><br>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
           </div>
-        </div>
-        <br><br>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          <br><br>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
           </div>
+          <br><br>
         </div>
-        <br><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -56,8 +56,8 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
             {{#each post}}
-            <li class="cat-drop"><a href="#"></a>{{this.category}}</li>
-            <li role="separator" class="divider"></li>
+              <li class="cat-drop"><a href="#"></a>{{this.category}}</li>
+              <li role="separator" class="divider"></li>
             {{/each}}
           </ul>
         </li>
@@ -77,71 +77,72 @@
     </div>
 </nav>
 
-        <div class="row devInfo">
-          <div class="container">
-            <h3 id= "meetthe">Meet The Developers</h3>
-          </div>
+<div class="row devInfo">
+  <div class="container">
+    <h3 id="meetthe">Meet The Developers</h3>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="container">
+    <div class="col-sm-4 col-md-3">
+      <div class="thumbnail">
+        <img class="pic" src="images/David.PNG" alt="Picture">
+        <div class="caption">
+          <h3 class="center">David Thrasher</h3>
+          <p class="center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p class="center"><a target="_blank" href="https://github.com/davidthrasher" class="btn btn-primary" role="button">GitHub</a> <a target="_blank" href="https://www.linkedin.com/in/david-thrasher/" class="btn btn-default" role="button">Linkedin</a></p>
         </div>
-
-
-        <div class="row">
-          <div class="container">
-          <div class="col-sm-4 col-md-3">
-            <div class="thumbnail">
-              <img class="pic" src="images/David.PNG" alt="Picture">
-              <div class="caption">
-                <h3 class="center">David Thrasher</h3>
-                <p class="center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p class="center"><a target= "_blank" href="https://github.com/davidthrasher" class="btn btn-primary" role="button">GitHub</a> <a target= "_blank" href="https://www.linkedin.com/in/david-thrasher/" class="btn btn-default" role="button">Linkedin</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-3">
-            <div class="thumbnail">
-              <img class="pic" src="images/Jeff.PNG" alt="Picture">
-              <div class="caption">
-                <h3 class="center">Jeff Liipfert</h3>
-                <p class="center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p class="center"><a target= "_blank" href="https://github.com/jliip51" class="btn btn-primary" role="button">GitHub</a> <a target= "_blank"  href="https://www.linkedin.com/in/jeff-liipfert-663a565/" class="btn btn-default" role="button">Linkedin</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-3">
-            <div class="thumbnail">
-              <img class="pic" src="images/Siddharth.PNG" alt="Picture">
-              <div class="caption">
-                <h3 class="center">Siddharth Patel</h3>
-                <p class="center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p class="center"><a target= "_blank" href="https://github.com/sid845" class="btn btn-primary" role="button">GitHub</a> <a target= "_blank" href="https://www.linkedin.com/in/siddharth-patel-456506134/" class="btn btn-default" role="button">Linkedin</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-3">
-            <div class="thumbnail">
-              <img class="pic" src="images/James.PNG" alt="Picture">
-              <div class="caption">
-                <h3 class="center">James Littlefield</h3>
-                <p class="center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p class="center"><a target= "_blank" href="https://github.com/musicteachj" class="btn btn-primary" role="button">GitHub</a> <a target= "_blank" href="https://www.linkedin.com/in/james-littlefield-93037713b/" class="btn btn-default" role="button">Linkedin</a></p>
-              </div>
-            </div>
-          </div>
-          </div>
-          <footer class="text-center">
-<<<<<<< HEAD
-          <br>
-=======
->>>>>>> origin/development
-            <p>&copy; 2017 The Great DB8</p>
-          </footer>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-3">
+      <div class="thumbnail">
+        <img class="pic" src="images/Jeff.PNG" alt="Picture">
+        <div class="caption">
+          <h3 class="center">Jeff Liipfert</h3>
+          <p class="center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p class="center"><a target="_blank" href="https://github.com/jliip51" class="btn btn-primary" role="button">GitHub</a> <a target="_blank" href="https://www.linkedin.com/in/jeff-liipfert-663a565/" class="btn btn-default" role="button">Linkedin</a></p>
         </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-3">
+      <div class="thumbnail">
+        <img class="pic" src="images/Siddharth.PNG" alt="Picture">
+        <div class="caption">
+          <h3 class="center">Siddharth Patel</h3>
+          <p class="center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p class="center"><a target="_blank" href="https://github.com/sid845" class="btn btn-primary" role="button">GitHub</a> <a target="_blank" href="https://www.linkedin.com/in/siddharth-patel-456506134/" class="btn btn-default" role="button">Linkedin</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-3">
+      <div class="thumbnail">
+        <img class="pic" src="images/James.PNG" alt="Picture">
+        <div class="caption">
+          <h3 class="center">James Littlefield</h3>
+          <p class="center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p class="center"><a target="_blank" href="https://github.com/musicteachj" class="btn btn-primary" role="button">GitHub</a> <a target="_blank" href="https://www.linkedin.com/in/james-littlefield-93037713b/" class="btn btn-default" role="button">Linkedin</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center">
+
+    <br>
+
+    <p>&copy; 2017 The Great DB8</p>
+  </footer>
+</div>
 
 
-    <!-- Bootstrap core JavaScript
+<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
