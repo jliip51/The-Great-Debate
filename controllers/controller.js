@@ -80,5 +80,5 @@ router.post("/add", function(req, res) {
 });
 
 module.exports = router;
-module.exports = uniqueCategories;
+// module.exports = uniqueCategories;
 // module.exports = getThreePosts;
