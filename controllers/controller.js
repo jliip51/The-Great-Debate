@@ -90,18 +90,13 @@ router.get("/post/:id", function(req, res) {
       id: req.params.id
     }
   }).then(function(hbsObj) {
-<<<<<<< HEAD
-    res.render("comment-submit", hbsObj);
-  })
-=======
     console.log(hbsObj);
     res.render("comment-submit", hbsObj);
   });
->>>>>>> origin/development
 });
 
 router.post("/add", function(req, res) {
-  db.Comment.create({}).then(function(resp) {
+  db.Comments.create({}).then(function(resp) {
     console.log(resp);
     return res.redirect("/");
   });
