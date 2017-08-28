@@ -26,13 +26,13 @@ $(document).ready(function() {
     if (!userCreds.email || !userCreds.password) {
       return;
     }
-
+    
     $('#email').val("");
     $('#password').val("");
-
     console.log(userCreds);
-    $.get("/signin", userCreds).then(function(data) {
-      console.log(data); //send to passport?//
+    $.post("/signin", userCreds, function(data) {
+      console.log(data);
+      console.log("frontend acknowledge"); 
     });
   };
   function handleUserFormSignUp(event) {
@@ -43,9 +43,28 @@ $(document).ready(function() {
       email: $('#inputEmail3').val().trim(),
       password: $('#inputPassword3').val().trim()
     };
+    if(!newUser.username){
+      return;
+    }
+    if(!newUser.email){
+      //enter email
+      return;
+    }
+    if(!newUser.password){
+      //enter password
+      return;
+    }
+    $('#username').val("");
+    $('#inputEmail3').val("");
+    $('#inputPassword3').val("");
     console.log(newUser);
     $.post("/signup", newUser).then(function(data) {
       console.log(data);
+      window.location.replace(data);
     });
   };
+  
+  $.get("/user_data").then(function(data) {
+    $("meetthe").text(data.email);
+  });
 });

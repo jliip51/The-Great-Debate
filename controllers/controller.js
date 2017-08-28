@@ -1,11 +1,21 @@
 var express = require('express');
 var sequelize = require('sequelize');
 var db = require('../models');
-
+var passport = require("./passport/passport");
+var isAuthenticated = require("./passport/middleware/isAuthenticated");
 var router = express.Router();
+
+router.post("/signin", passport.authenticate("local"), function(req, res) {
+console.log("this is also working");
+console.log("siddddddd");
+console.log("siddddddd");
+res.json("alltopics");
+});
+
 
 router.post("/signup", function(req, res) {
   console.log(req.body);
+  console.log("siddddddd");
   db.Users.create({
     username: req.body.username,
     email: req.body.email,
@@ -15,18 +25,19 @@ router.post("/signup", function(req, res) {
   });
 });
 
-router.get("/signin", function(req, res) {
-  console.log("this is also working");
-  console.log(req.query.email)
-  db.Users.findOne({
-    where: {
-      email: req.query.email,
-      password: req.query.password
-    }
-  }).then(function(dbresult) {
-    res.json(dbresult);
-    console.log(dbresult);
-  });
+router.get("/user_data", isAuthenticated, function(req, res) {
+  if (!req.user) {
+    // The user is not logged in, send back an empty object
+    res.json({});
+  }
+  else {
+    // Otherwise send back the user's email and id
+    // Sending back a password, even a hashed password, isn't a good idea
+    res.json({
+      email: req.user.email,
+      id: req.user.id
+    });
+  }
 });
 
 //Iterates through dbresult for posts to get unique category values to display in the dropdown//
