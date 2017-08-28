@@ -89,10 +89,11 @@ router.get("/post/:id", function(req, res) {
     where: {
       id: req.params.id
     }
-  }).then(function(hbsObj) {
-    console.log(hbsObj);
+  }).then(function(data) {
+    var hbsObj = {Posts: data};
     res.render("comment-submit", hbsObj);
   });
+
 });
 
 router.post("/add", function(req, res) {
