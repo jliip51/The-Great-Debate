@@ -3,13 +3,14 @@ var sequelize = require('sequelize');
 var db = require('../models');
 var passport = require("./passport/passport");
 var isAuthenticated = require("./passport/middleware/isAuthenticated");
+var alltopics=require("../views/alltopics");
 var router = express.Router();
 
 router.post("/signin", passport.authenticate("local"), function(req, res) {
 console.log("this is also working");
 console.log("siddddddd");
 console.log("siddddddd");
-res.json("alltopics");
+res.render("alltopics");
 });
 
 
@@ -21,7 +22,7 @@ router.post("/signup", function(req, res) {
     email: req.body.email,
     password: req.body.password
   }).then(function(dbresult) {
-    res.json(dbresult);
+    res.render("home");
   });
 });
 

@@ -31,8 +31,7 @@ $(document).ready(function() {
     $('#password').val("");
     console.log(userCreds);
     $.post("/signin", userCreds, function(data) {
-      console.log(data);
-      console.log("frontend acknowledge"); 
+      $('body').html(data);
     });
   };
   function handleUserFormSignUp(event) {
@@ -44,6 +43,7 @@ $(document).ready(function() {
       password: $('#inputPassword3').val().trim()
     };
     if(!newUser.username){
+      
       return;
     }
     if(!newUser.email){
@@ -60,7 +60,8 @@ $(document).ready(function() {
     console.log(newUser);
     $.post("/signup", newUser).then(function(data) {
       console.log(data);
-      window.location.replace(data);
+      console.log(arguments);
+      $('body').html(data);
     });
   };
   
