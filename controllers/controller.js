@@ -90,8 +90,9 @@ router.get("/post/:id", function(req, res) {
       id: req.params.id
     }
   }).then(function(hbsObj) {
+    console.log(hbsObj);
     res.render("comment-submit", hbsObj);
-  })
+  });
 });
 
 router.post("/add", function(req, res) {
