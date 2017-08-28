@@ -9,21 +9,30 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       category: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
+        len: [1, 20]
       },
       topic: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
+        len: [1, 50]
       },
       description: {
-        type: Sequelize.TEXT
+        allowNull: false,
+        type: Sequelize.TEXT,
+        len: [1, 100]
       },
       start: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       expired: {
+        defaultValue: false,
         type: Sequelize.BOOLEAN
       },
       comment_count: {
+        defaultValue: 0,
         type: Sequelize.INTEGER
       },
       createdAt: {

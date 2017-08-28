@@ -5,7 +5,7 @@
 }
 
 body 	{
-	background-image: url("/images/bkgrnd.png");
+	background-image: url("/images/bkgrnd-gray.png");
 	background-position: 0px 0px;
 	background-repeat: repeat-x;
 
@@ -21,6 +21,7 @@ body 	{
 	margin-top: 80px;
 	text-align: center;
 	color: white;
+	font-family: 'Yellowtail', cursive;
 }
 
 .center {
@@ -62,5 +63,36 @@ body 	{
 }
 
 #live {
-	text-align:center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: white;
+	font-size: 50px;
 }
+
+#meetthe {
+	margin-top: 40px;
+	margin-bottom: 25px;
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: white;
+	font-size: 50px;
+}
+
+footer {
+	color: white;
+	background-color: #242424;
+	height: 80px;
+	margin-top: 70px;
+	font-family: 'Yellowtail', cursive;
+	font-size: 20px;
+}
+
+.navbar {
+	font-family: 'Yellowtail', cursive;
+}
+
+/*footer {
+	background-color: #2f2f2f;
+}*/

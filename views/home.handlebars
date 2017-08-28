@@ -55,8 +55,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            {{#each post}}
-            <li class="cat-drop"><a href="#"></a>{{this.category}}</li>
+            {{#each categories}}
+            <li class="cat-drop"><a href="#"></a>{{this}}</li>
             <li role="separator" class="divider"></li>
             {{/each}}
           </ul>
@@ -79,35 +79,29 @@
 <div class="jumbotron">
   <div class="container">
     <h1>The Great DB8</h1>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    <p><a target= "_blank" class="btn btn-primary btn-lg" href="/about" role="button">Check out the Devs</a></p>
+    <p>The Great DB8 is a place for people all over the world to come together and share their thoughts on admin curated topics. From sports to politics, and everything in between, we're sure you'll find interesting and engaging topics to take part in!</p>
+    <p><a target= "_blank" class="btn btn-primary btn-lg" href="/about" role="button">Meet The Developers</a></p>
   </div>
 </div>
 
 <h2 id="live">Live Topics:</h2>
 <div class="container">
   <div class="row post-row">
+
     {{#each post}}
       <div class="col-md-4 center post-blocks">
         <h3>{{this.topic}}</h3>
         <p>{{this.description}}</p>
-        <p><a class="btn btn-success" href="#" role="button">Comment &raquo;</a></p>
+        <p><a class="btn btn-success" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
       </div>
-      <!-- <div class="col-sm-3">
-      <div class="card text-center">
-        <div class="card-body">
-          <h4 class="card-title">{{this.topic}}</h4>
-          <p class="card-text">{{this.description}}</p>
-          <a href="#" class="btn btn-primary">Add Comment</a>
-        </div>
-      </div> -->
     {{/each}}
+
   </div>
 </div>
-<hr>
 
-<footer class="text-center">
+
+<footer class="text-center" id="footer">
+<br>
   <p>&copy; 2017 The Great DB8</p>
 </footer>
 </div>
-<!-- /container -->

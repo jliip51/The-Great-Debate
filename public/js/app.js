@@ -29,24 +29,43 @@ $(document).ready(function() {
     
     $('#email').val("");
     $('#password').val("");
-    
     console.log(userCreds);
-    $.get("/signin", userCreds).then(function(data) {
-      console.log(data); //send to passport?//
+    $.post("/signin", userCreds, function(data) {
+      $('body').html(data);
     });
   };
   function handleUserFormSignUp(event) {
     event.preventDefault();
     console.log('working');
-    console.log(newUser);
     var newUser = {
       username: $('#username').val().trim(),
       email: $('#inputEmail3').val().trim(),
       password: $('#inputPassword3').val().trim()
     };
+    if(!newUser.username){
+      
+      return;
+    }
+    if(!newUser.email){
+      //enter email
+      return;
+    }
+    if(!newUser.password){
+      //enter password
+      return;
+    }
+    $('#username').val("");
+    $('#inputEmail3').val("");
+    $('#inputPassword3').val("");
     console.log(newUser);
     $.post("/signup", newUser).then(function(data) {
       console.log(data);
+      console.log(arguments);
+      $('body').html(data);
     });
   };
+  
+  $.get("/user_data").then(function(data) {
+    $("meetthe").text(data.email);
+  });
 });
