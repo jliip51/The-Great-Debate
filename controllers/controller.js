@@ -3,12 +3,19 @@ var sequelize = require('sequelize');
 var db = require('../models');
 var passport = require("./passport/passport");
 var isAuthenticated = require("./passport/middleware/isAuthenticated");
-var alltopics = require("../views/alltopics");
+var home = require("../views/home");
 var router = express.Router();
 
 router.post("/signin", passport.authenticate("local"), function(req, res) {
-  
-  res.render("alltopics");
+  var username = req.user.username;
+  res.render("home", {signedin: true, username: username});
+});
+
+router.post("/signout", function(req, res) {
+  req.session.destroy()
+  res.json({
+    redirectTo: "/"
+  })
 });
 
 router.post("/signup", function(req, res) {
@@ -16,20 +23,27 @@ router.post("/signup", function(req, res) {
   var email=req.body.email;
   var password=req.body.password;
   console.log(username,email,password);
-  req.checkBody('username', 'Name is required').notEmpty();
+  req.checkBody("username", "Name is required").notEmpty();
+  req.checkBody("username", "username is required").notEmpty();
+  req.checkBody("email", "Email is required").notEmpty();
+  req.checkBody("email", "Email is not valid").isEmail();
+  req.checkBody("password", "Password is required").notEmpty();
+
   var errors=req.validationErrors();
   if(errors){
-    req.flash('error', '');
-
+    res.render("home",{
+      errors:errors
+    });
+  }else{
+    console.log("siddddddddd")
+    db.Users.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    }).then(function(dbresult) {
+      res.render("home");
+    });
   }
-  console.log("siddddddddd")
-  db.Users.create({
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password
-  }).then(function(dbresult) {
-    res.render("home");
-  });
 });
 
 router.get("/user_data", isAuthenticated, function(req, res) {
@@ -77,9 +91,15 @@ var getThreePosts = function(dbresult, cb) {
 };
 
 router.get("/", function(req, res) {
+  console.log("The user is", req.user)
   db.Posts.findAll({}).then(function(dbresult) {
     getThreePosts(dbresult, function(hbsObj) {
       console.log(hbsObj);
+      //if user is logged in shows username and sign out button instead of login form
+      if(req.user) {
+          hbsObj.signedin = true;
+          hbsObj.username = req.user.username;
+      }
       res.render("home", hbsObj);
     })
   });
@@ -113,11 +133,5 @@ router.post("/add", function(req, res) {
     throw err;
   });
 });
-
-// router.post('/login',
-//   passport.authenticate('local', {successRedirect:'/', failureRedirect:'/about',failureFlash: true}),
-//   function(req, res) {
-//     res.redirect('/');
-//   });
   
 module.exports = router;
