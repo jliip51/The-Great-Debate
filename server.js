@@ -5,19 +5,21 @@ var bodyParser = require('body-parser');
 var handleBars = require('express-handlebars');
 var db = require("./models");
 var path = require('path');
-
+var session = require("express-session");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var expressValidator = require("express-validator");
+var flash = require("connect-flash");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
-
-var expressValidator = require("express-validator");
-var flash = require("connect-flash");
 
 //sessions
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+//validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
       var namespace = param.split('.')
