@@ -9,7 +9,7 @@
       <div class="modal-body">
         {{#if errors}}
               {{#each errors}}
-                <div class="alert alert-danger">{{msg}}</div>
+                <div class="alert alert-danger" id="err">{{msg}}</div>
               {{/each}}
         {{/if}}
         <div class="form-group">

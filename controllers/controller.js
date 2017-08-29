@@ -7,15 +7,22 @@ var alltopics = require("../views/alltopics");
 var router = express.Router();
 
 router.post("/signin", passport.authenticate("local"), function(req, res) {
-  console.log("this is also working");
-  console.log("siddddddd");
-  console.log("siddddddd");
+  
   res.render("alltopics");
 });
 
 router.post("/signup", function(req, res) {
-  console.log(req.body);
-  console.log("siddddddd");
+  var username=req.body.username;
+  var email=req.body.email;
+  var password=req.body.password;
+  console.log(username,email,password);
+  req.checkBody('username', 'Name is required').notEmpty();
+  var errors=req.validationErrors();
+  if(errors){
+    req.flash('error', '');
+
+  }
+  console.log("siddddddddd")
   db.Users.create({
     username: req.body.username,
     email: req.body.email,
@@ -107,4 +114,10 @@ router.post("/add", function(req, res) {
   });
 });
 
+// router.post('/login',
+//   passport.authenticate('local', {successRedirect:'/', failureRedirect:'/about',failureFlash: true}),
+//   function(req, res) {
+//     res.redirect('/');
+//   });
+  
 module.exports = router;
