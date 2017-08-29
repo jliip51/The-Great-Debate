@@ -72,8 +72,6 @@ body 	{
 }
 
 #postcursive {
-	margin-top: 150px;
-	margin-bottom: 25px;
 	font-family: 'Yellowtail', cursive;
 	text-align: center;
 	color: black;
@@ -103,6 +101,7 @@ footer {
 	font-family: 'Yellowtail', cursive;
 }
 
+
 #meetthe {
 	margin-top: 40px;
 	margin-bottom: 25px;
@@ -112,10 +111,16 @@ footer {
 	font-size: 50px;
 }
 
-footer {
-	color: white;
+
+#post-table {
+	margin-top: 100px;
+	border-style: solid;
+  border-width: 3px 3px 3px 3px;
+	border-color: #242424;
+
 }
 
-/*footer {
-	background-color: #2f2f2f;
-}*/
+#post-body {
+	text-align: center;
+
+}
