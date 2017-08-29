@@ -26,10 +26,8 @@ $(document).ready(function() {
     if (!userCreds.email || !userCreds.password) {
       return;
     }
-    
     $('#email').val("");
     $('#password').val("");
-    console.log(userCreds);
     $.post("/signin", userCreds, function(data) {
       $('body').html(data);
     });
@@ -42,18 +40,6 @@ $(document).ready(function() {
       email: $('#inputEmail3').val().trim(),
       password: $('#inputPassword3').val().trim()
     };
-    if(!newUser.username){
-      
-      return;
-    }
-    if(!newUser.email){
-      //enter email
-      return;
-    }
-    if(!newUser.password){
-      //enter password
-      return;
-    }
     $('#username').val("");
     $('#inputEmail3').val("");
     $('#inputPassword3').val("");
@@ -64,7 +50,6 @@ $(document).ready(function() {
       $('body').html(data);
     });
   };
-  
   $.get("/user_data").then(function(data) {
     $("meetthe").text(data.email);
   });
