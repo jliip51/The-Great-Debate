@@ -14,9 +14,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     links: {
       type: DataTypes.TEXT,
-      validate: {
-        isURL: {allow_underscores: true}
-    }
   }
   });
     Comments.associate = function(models) {

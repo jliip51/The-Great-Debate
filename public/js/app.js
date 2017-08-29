@@ -15,6 +15,7 @@ $(document).ready(function() {
   $(document).on("submit", "#signInForm", handleUserFormSignIn);
   $(document).on("submit", "#signUpForm", handleUserFormSignUp);
 
+
   function handleUserFormSignIn(event) {
     event.preventDefault();
     console.log('handler is working');
@@ -26,7 +27,7 @@ $(document).ready(function() {
     if (!userCreds.email || !userCreds.password) {
       return;
     }
-    
+
     $('#email').val("");
     $('#password').val("");
     console.log(userCreds);
@@ -34,6 +35,7 @@ $(document).ready(function() {
       $('body').html(data);
     });
   };
+
   function handleUserFormSignUp(event) {
     event.preventDefault();
     console.log('working');
@@ -42,15 +44,15 @@ $(document).ready(function() {
       email: $('#inputEmail3').val().trim(),
       password: $('#inputPassword3').val().trim()
     };
-    if(!newUser.username){
-      
+    if (!newUser.username) {
+
       return;
     }
-    if(!newUser.email){
+    if (!newUser.email) {
       //enter email
       return;
     }
-    if(!newUser.password){
+    if (!newUser.password) {
       //enter password
       return;
     }
@@ -64,7 +66,7 @@ $(document).ready(function() {
       $('body').html(data);
     });
   };
-  
+
   $.get("/user_data").then(function(data) {
     $("meetthe").text(data.email);
   });

@@ -48,6 +48,8 @@
         <h4 class="modal-title" id="myModalLabel">What do you think?</h4>
       </div>
       <form id="commentForm">
+        <input type="hidden" id="postid" name="PostId" value="{{Posts.id}}">
+        <input type="hidden" id="userid" name="UserId" value="544cb234-f949-4ce8-8b2d-f036667bcc49"> <!--test value needs to change {{User.id}} once user valiation is supported-->
         <div class="modal-body">
           <div class="form-group">
             <label for="commenting" class="col-sm-2 control-label">Comment</label>
