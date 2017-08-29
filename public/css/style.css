@@ -149,12 +149,12 @@ footer {
 	font-size: 20px;
 }
 
-#about, #threeposts  {
+#about, #threeposts, #alltopics  {
 	font-family: 'Cutive Mono', monospace;
 }
 
 /*Fade in CSS animation====================*/
-#alldevs, #meetthe, #homebody, #commentbody, #comments-body, #comments {
+#alldevs, #meetthe, #homebody, #commentbody, #comments-body, #comments, #alltopics {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */

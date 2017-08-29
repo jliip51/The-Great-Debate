@@ -6,34 +6,39 @@
         <h4 class="modal-title" id="myModalLabel">Register Here</h4>
       </div>
       <form id="signUpForm">
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
-            <div class="col-sm-10">
-              <input type="name" class="form-control" id="username" placeholder="username">
-            </div>
+      <div class="modal-body">
+        {{#if errors}}
+              {{#each errors}}
+                <div class="alert alert-danger" id="err">{{msg}}</div>
+              {{/each}}
+        {{/if}}
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+          <div class="col-sm-10">
+            <input type="name" class="form-control" id="username" placeholder="username">
           </div>
-          <br><br>
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-            </div>
-          </div>
-          <br><br>
-          <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-            </div>
-          </div>
-          <br><br>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+        <br><br>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
         </div>
-      </form>
+        <br><br>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
     </div>
   </div>
 </div>
@@ -55,9 +60,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            {{#each post}}
-              <li class="cat-drop"><a href="#"></a>{{this.category}}</li>
-              <li role="separator" class="divider"></li>
+            {{#each categories}}
+            <li class="cat-drop"><a href="#"></a>{{this}}</li>
+            <li role="separator" class="divider"></li>
             {{/each}}
           </ul>
         </li>
@@ -69,10 +74,25 @@
         <div class="form-group">
           <input type="password" placeholder="Password" class="form-control" id="password">
         </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
           Sign Up
         </button>
       </form>
     </div>
 </nav>
+
+  <h2 id="live">All Topics:</h2>
+<div class="container">
+  <div class="row post-row">
+
+    {{#each Posts}}
+      <div id= "alltopics" class="col-md-4 center post-blocks">
+        <h2>{{this.topic}}</h2>
+
+        <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+      </div>
+    {{/each}}
+
+  </div>
+</div>

@@ -7,7 +7,7 @@ var alltopics = require("../views/alltopics");
 var router = express.Router();
 
 router.post("/signin", passport.authenticate("local"), function(req, res) {
-  
+
   res.render("alltopics");
 });
 
@@ -75,7 +75,7 @@ var getThreePosts = function(dbresult, cb) {
     return cb(hbsObj);
   });
 };
-
+//Call all posts and filter three for home page============//
 router.get("/", function(req, res) {
   db.Posts.findAll({}).then(function(dbresult) {
     getThreePosts(dbresult, function(hbsObj) {
@@ -84,11 +84,11 @@ router.get("/", function(req, res) {
     })
   });
 });
-
+//Render about developers page===================//
 router.get("/about", function(req, res) {
   res.render("aboutdevelopers");
 });
-
+//Get One Post By ID, display it on comment page===========//
 router.get("/post/:id", function(req, res) {
   db.Posts.findOne({
     where: {
@@ -102,8 +102,21 @@ router.get("/post/:id", function(req, res) {
   }).catch(function(err){
     throw err;
   });
-
 });
+//Display all posts regardless of category and display them on all topics page==========//
+router.get("/posts", function(req, res) {
+  db.Posts.findAll({})
+    .then(function(data) {
+      var hbsObj = {
+        Posts: data
+      };
+      res.render("alltopics", hbsObj);
+    }).catch(function(err) {
+      throw err;
+    });
+});
+
+router.get("posts/:category")
 
 router.post("/add", function(req, res) {
   db.Comments.create(req.body).then(function(resp) {
@@ -119,5 +132,5 @@ router.post("/add", function(req, res) {
 //   function(req, res) {
 //     res.redirect('/');
 //   });
-  
+
 module.exports = router;
