@@ -3,16 +3,15 @@ var sequelize = require('sequelize');
 var db = require('../models');
 var passport = require("./passport/passport");
 var isAuthenticated = require("./passport/middleware/isAuthenticated");
-var alltopics=require("../views/alltopics");
+var alltopics = require("../views/alltopics");
 var router = express.Router();
 
 router.post("/signin", passport.authenticate("local"), function(req, res) {
-console.log("this is also working");
-console.log("siddddddd");
-console.log("siddddddd");
-res.render("alltopics");
+  console.log("this is also working");
+  console.log("siddddddd");
+  console.log("siddddddd");
+  res.render("alltopics");
 });
-
 
 router.post("/signup", function(req, res) {
   console.log(req.body);
@@ -30,8 +29,7 @@ router.get("/user_data", isAuthenticated, function(req, res) {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     res.json({});
-  }
-  else {
+  } else {
     // Otherwise send back the user's email and id
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
@@ -66,18 +64,18 @@ var getThreePosts = function(dbresult, cb) {
     post: postArr
   }
   console.log(obj);
-  uniqueCategories(dbresult, obj, function(hbsObj){
+  uniqueCategories(dbresult, obj, function(hbsObj) {
     return cb(hbsObj);
   });
 };
 
 router.get("/", function(req, res) {
   db.Posts.findAll({}).then(function(dbresult) {
-    getThreePosts(dbresult, function(hbsObj){
-    console.log(hbsObj);
-    res.render("home", hbsObj);
-  })
-});
+    getThreePosts(dbresult, function(hbsObj) {
+      console.log(hbsObj);
+      res.render("home", hbsObj);
+    })
+  });
 });
 
 router.get("/about", function(req, res) {
@@ -90,19 +88,23 @@ router.get("/post/:id", function(req, res) {
       id: req.params.id
     }
   }).then(function(data) {
-    var hbsObj = {Posts: data};
+    var hbsObj = {
+      Posts: data
+    };
     res.render("comment-submit", hbsObj);
+  }).catch(function(err){
+    throw err;
   });
 
 });
 
 router.post("/add", function(req, res) {
-  db.Comment.create({}).then(function(resp) {
-    console.log(resp);
-    return res.redirect("/");
+  db.Comments.create(req.body).then(function(resp) {
+    console.log("/post/"+resp.PostId)
+    return res.redirect("/post/" + resp.PostId);
+  }).catch(function(err){
+    throw err;
   });
 });
 
 module.exports = router;
-// module.exports = uniqueCategories;
-// module.exports = getThreePosts;
