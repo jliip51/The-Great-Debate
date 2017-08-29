@@ -93,12 +93,13 @@ router.get("/post/:id", function(req, res) {
   db.Posts.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    include: [{ model: db.Comments, include: [{ model: db.Users}]}]
   }).then(function(data) {
-    var hbsObj = {
-      Posts: data
-    };
-    res.render("comment-submit", hbsObj);
+    // var hbsObj = {
+    //   Posts: data
+    // };
+    // res.render("comment-submit", hbsObj);
   }).catch(function(err){
     throw err;
   });
