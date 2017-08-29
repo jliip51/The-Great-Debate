@@ -74,8 +74,8 @@
         <div class="form-group">
           <input type="password" placeholder="Password" class="form-control" id="password">
         </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
           Sign Up
         </button>
       </form>
@@ -86,7 +86,7 @@
   <div class="jumbotron">
     <div class="container">
       <h1>The Great DB8</h1>
-      <p>The Great DB8 is a place for people all over the world to come together and share their thoughts on admin curated topics. From sports to politics, and everything in between, we're sure you'll find interesting and engaging topics to take part in!</p>
+      <p id= "about">The Great DB8 is a place for people all over the world to come together and share their thoughts on admin curated topics. From sports to politics, and everything in between, we're sure you'll find interesting and engaging topics to take part in!</p>
       <p><a class="btn btn-primary btn-lg" href="/about" role="button">Meet The Developers</a></p>
     </div>
   </div>
@@ -96,10 +96,10 @@
     <div class="row post-row">
 
       {{#each post}}
-        <div class="col-md-4 center post-blocks">
-          <h3>{{this.topic}}</h3>
+        <div id= "threeposts" class="col-md-4 center post-blocks">
+          <h2>{{this.topic}}</h2>
           <p>{{this.description}}</p>
-          <p><a class="btn btn-success" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+          <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
         </div>
       {{/each}}
 

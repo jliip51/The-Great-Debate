@@ -106,8 +106,8 @@
         <div class="form-group">
           <input type="password" placeholder="Password" class="form-control" id="password">
         </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
           Sign Up
         </button>
       </form>
@@ -122,9 +122,12 @@
     {{#Posts}}
       <div id= "post-body" class="col-md-4 center post-blocks">
         <h1 id="postcursive">Topic: {{this.topic}}</h1>
+        <hr>
         <h3>Category: {{this.category}}</h3>
+        <hr>
         <p>{{this.description}}</p>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#commentModal">
+        <hr>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal">
           Comment
         </button>
       </div>

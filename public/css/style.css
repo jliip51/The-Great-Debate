@@ -2,6 +2,7 @@
 @keyframes animatedBackground {
 	from { background-position: 0 0; }
 	to { background-position: 100% 0; }
+
 }
 
 body 	{
@@ -9,8 +10,7 @@ body 	{
 	background-image: url("/images/light.jpg");
 	background-position: 0px 0px;
 	background-repeat: repeat-x;
-
-	animation: animatedBackground 60s linear infinite;
+	animation: animatedBackground 80s linear infinite;
 }
 /*end animated background css*/
 
@@ -123,6 +123,12 @@ footer {
 
 #post-body {
 	text-align: center;
+	font-family: 'Cutive Mono', monospace;
+	font-size: 20px;
+}
+
+#about, #threeposts {
+	font-family: 'Cutive Mono', monospace;
 }
 
 /*Fade in CSS animation====================*/
