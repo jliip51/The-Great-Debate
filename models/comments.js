@@ -14,24 +14,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     links: {
       type: DataTypes.TEXT,
-      validate: {
-        isURL: {allow_underscores: true}
-    }
   }
   });
     Comments.associate = function(models) {
       Comments.belongsTo(models.Users, {
-        foreignKey: {
-          allowNull: false
-        },
-        onDelete: "CASCADE"
       });
 
       Comments.belongsTo(models.Posts, {
-        foreignKey: {
-          allowNull: false
-        },
-        onDelete: "CASCADE"
       });
     };
   return Comments;
