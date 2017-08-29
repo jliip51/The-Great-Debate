@@ -1,4 +1,3 @@
-<!--Modal for signing up-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -7,34 +6,39 @@
         <h4 class="modal-title" id="myModalLabel">Register Here</h4>
       </div>
       <form id="signUpForm">
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
-            <div class="col-sm-10">
-              <input type="name" class="form-control" id="username" placeholder="username">
-            </div>
+      <div class="modal-body">
+        {{#if errors}}
+              {{#each errors}}
+                <div class="alert alert-danger" id="err">{{msg}}</div>
+              {{/each}}
+        {{/if}}
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+          <div class="col-sm-10">
+            <input type="name" class="form-control" id="username" placeholder="username">
           </div>
-          <br><br>
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-            </div>
-          </div>
-          <br><br>
-          <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-            </div>
-          </div>
-          <br><br>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+        <br><br>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
         </div>
-      </form>
+        <br><br>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
     </div>
   </div>
 </div>
@@ -92,10 +96,17 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            {{#each categories}}
-            <li class="cat-drop"><a href="#"></a>{{this}}</li>
-            <li role="separator" class="divider"></li>
-            {{/each}}
+            <li class="cat-drop"><a href="/posts/Politics">Politics</a></li>
+            <li class="cat-drop"><a href="/posts/Sports">Sports</a></li>
+            <li class="cat-drop"><a href="/posts/Film">Film</a></li>
+            <li class="cat-drop"><a href="/posts/Books">Books</a></li>
+            <li class="cat-drop"><a href="/posts/Music">Music</a></li>
+            <li class="cat-drop"><a href="/posts/Technology">Technology</a></li>
+            <li class="cat-drop"><a href="/posts/Transportation">Transportation</a></li>
+            <li class="cat-drop"><a href="/posts/Science">Science</a></li>
+            <li class="cat-drop"><a href="/posts/PopularCulture">Popular Culture</a></li>
+            <li class="cat-drop"><a href="/posts/ConspiracyTheories">Conspiracy Theories</a></li>
+            <li class="cat-drop"><a href="/posts/Other">Other</a></li>
           </ul>
         </li>
       </ul>
@@ -122,7 +133,6 @@
       {{/if}}
     </div>
 </nav>
-
 
 <div id= "commentbody">
 <div class="container">
