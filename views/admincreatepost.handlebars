@@ -62,6 +62,14 @@
           </ul>
         </li>
       </ul>
+      {{#if signedin}}
+      <form class="navbar-form navbar-right" id="signOutForm">
+        <div class="form-group">
+        <p style="color: white">{{username}}</p>
+        </div>
+        <button type="submit" class="btn btn-success">Sign out</button>
+      </form>
+      {{else}}
       <form class="navbar-form navbar-right" id="signInForm">
         <div class="form-group">
           <input type="text" placeholder="Email" class="form-control" id="email">
@@ -69,10 +77,11 @@
         <div class="form-group">
           <input type="password" placeholder="Password" class="form-control" id="password">
         </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
           Sign Up
         </button>
       </form>
+      {{/if}}
     </div>
 </nav>
