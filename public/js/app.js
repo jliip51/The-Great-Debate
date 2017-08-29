@@ -14,7 +14,17 @@ $(document).ready(function() {
 
   $(document).on("submit", "#signInForm", handleUserFormSignIn);
   $(document).on("submit", "#signUpForm", handleUserFormSignUp);
+  $(document).on("submit", "#signOutForm", handleUserFormSignOut);
 
+
+  function handleUserFormSignOut(e) {
+      event.preventDefault();
+    console.log("Reached sign out handler");
+    $.post("/signout", {}, function(res) {
+      console.log("Signed out")
+      window.location = res.redirectTo || "/"
+    });
+  }
 
   function handleUserFormSignIn(event) {
     event.preventDefault();

@@ -38,11 +38,33 @@ passport.use(new LocalStrategy(
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser(function(user, cb) {
-  cb(null, user);
+  cb(null, user.id);
 });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function(id, cb) {
+  console.log(id)
+  db.Users.findOne({
+    where: {
+      id: id
+    }
+  }).then(function(dbUser) {
+    // console.log("The fetched user is", dbUser);
+    // If there's no user with the given email
+    // if (!dbUser) {
+    //   return done(null, false, {
+    //     message: "Incorrect email."
+    //   });
+    // }
+    // If there is a user with the given email, but the password the user gives us is incorrect
+    // else if (!dbUser.validPassword(password)) {
+    //   return done(null, false, {
+    //     message: "Incorrect password."
+    //   });
+    // }
+    // If none of the above, return the user
+    cb(null, dbUser);
+  });
+  
 });
 
 // Exporting our configured passport
