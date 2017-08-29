@@ -33,7 +33,10 @@ module.exports = function(sequelize, DataTypes) {
   });
    Posts.associate = function(models) {
         Posts.hasMany(models.Comments, {
-          onDelete: 'CASCADE'
+          foreignKey: {
+            allowNull: false
+          },
+          onDelete: "CASCADE"
         });
   };
   return Posts;

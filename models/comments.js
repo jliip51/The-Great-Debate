@@ -21,9 +21,17 @@ module.exports = function(sequelize, DataTypes) {
   });
     Comments.associate = function(models) {
       Comments.belongsTo(models.Users, {
+        foreignKey: {
+          allowNull: false
+        },
+        onDelete: "CASCADE"
       });
 
       Comments.belongsTo(models.Posts, {
+        foreignKey: {
+          allowNull: false
+        },
+        onDelete: "CASCADE"
       });
     };
   return Comments;
