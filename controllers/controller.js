@@ -7,10 +7,6 @@ var home = require("../views/home");
 var router = express.Router();
 
 router.post("/signin", passport.authenticate("local"), function(req, res) {
-<<<<<<< HEAD
-
-  res.render("alltopics");
-=======
   var username = req.user.username;
   res.render("home", {signedin: true, username: username});
 });
@@ -20,7 +16,7 @@ router.post("/signout", function(req, res) {
   res.json({
     redirectTo: "/"
   })
->>>>>>> sid
+
 });
 
 router.post("/signup", function(req, res) {
