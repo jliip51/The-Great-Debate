@@ -5,7 +5,8 @@
 }
 
 body 	{
-	background-image: url("/images/bkgrnd-gray.png");
+	/*background-image: url("/images/bkgrnd-gray.png");*/
+	background-image: url("/images/light.jpg");
 	background-position: 0px 0px;
 	background-repeat: repeat-x;
 
