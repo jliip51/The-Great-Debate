@@ -10,14 +10,13 @@ body 	{
 	background-image: url("/images/light.jpg");
 	background-position: 0px 0px;
 	background-repeat: repeat-x;
+	background-repeat: repeat-y;
 	animation: animatedBackground 80s linear infinite;
 }
 /*end animated background css*/
 
 .jumbotron {
 	background-color: rgba(0,0,0,0.4);   /*rgba color for transparent jumbotron*/
-	margin-left: 200px;
-	margin-right: 200px;
 	border-radius: 5px;
 	margin-top: 80px;
 	text-align: center;
@@ -121,18 +120,41 @@ footer {
 
 }
 
+.pic {
+	width: 200px;
+	height: 225px;
+	text-align:center;
+}
+
+#devtext {
+	text-align: center;
+	font-family: 'Cutive Mono', monospace;
+	font-size: 15px;
+	color:white;
+}
+
+#devname {
+	font-family: 'Yellowtail', cursive;
+	font-size: 40px;
+	color:white;
+}
+
+#devpanel {
+	background-color: rgba(0,0,0,0.4);
+}
+
 #post-body {
 	text-align: center;
 	font-family: 'Cutive Mono', monospace;
 	font-size: 20px;
 }
 
-#about, #threeposts {
+#about, #threeposts  {
 	font-family: 'Cutive Mono', monospace;
 }
 
 /*Fade in CSS animation====================*/
-.thumbnail, #meetthe, #homebody, #commentbody, #comments-body, #comments {
+#alldevs, #meetthe, #homebody, #commentbody, #comments-body, #comments {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
