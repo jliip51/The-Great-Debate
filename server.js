@@ -20,22 +20,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
-
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+//app.use(expressValidator(middlewareOptions));
 
 // Connect Flash
 app.use(flash());
