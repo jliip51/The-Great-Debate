@@ -6,10 +6,11 @@ var isAuthenticated = require("./passport/middleware/isAuthenticated");
 var home = require("../views/home");
 var router = express.Router();
 
-router.post("/signin", passport.authenticate("local"), function(req, res) {
+router.post("/signin", passport.authenticate("local"), function(req, res, next) {
 
-  var username = req.user.username;
-  res.render("home", {signedin: true, username: username});
+  // var username = req.user.username;
+  // res.render("home", {signedin: true, username: username});
+  return next();
 });
 
 router.post("/signout", function(req, res) {
@@ -110,7 +111,8 @@ router.get("/about", function(req, res) {
   res.render("aboutdevelopers");
 });
 //Get One Post By ID, display it on comment page===========//
-router.get("/post/:id", function(req, res) {
+router.get("/post/:id", isAuthenticated, function(req, res) {
+  var UserId = req.user.id;
   db.Posts.findOne({
     where: {
       id: req.params.id
@@ -120,7 +122,8 @@ router.get("/post/:id", function(req, res) {
 
     var hbsObj = {
       Posts: data,
-      Comments: data.Comments
+      Comments: data.Comments,
+      UserId: UserId
     };
     res.render("comment-submit", hbsObj);
   }).catch(function(err){
