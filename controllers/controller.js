@@ -107,8 +107,7 @@ router.get("/", function(req, res) {
 });
 //Render about developers page===================//
 router.get("/about", function(req, res) {
-  var username = req.user.username;
-  res.render("aboutdevelopers", {signedin: true, username: username});
+  res.render("aboutdevelopers",);
 });
 //Get One Post By ID, display it on comment page===========//
 router.get("/post/:id", function(req, res) {
@@ -120,8 +119,8 @@ router.get("/post/:id", function(req, res) {
     var hbsObj = {
       Posts: data
     };
-    var username = req.user.username;
-    res.render("comment-submit", {hbsObj,signedin: true, username: username});
+    
+    res.render("comment-submit");
   }).catch(function(err){
     throw err;
   });
@@ -133,8 +132,8 @@ router.get("/posts", function(req, res) {
       var hbsObj = {
         Posts: data
       };
-      var username = req.user.username;
-      res.render("alltopics", {hbsObj,signedin: true, username: username});
+      
+      res.render("alltopics");
     }).catch(function(err) {
       throw err;
     });
@@ -150,8 +149,7 @@ router.get("/posts/:category", function(req, res) {
       var hbsObj = {
         Posts: data
       };
-      var username = req.user.username;
-      res.render("spectopics", {hbsObj,signedin: true, username: username});
+      res.render("spectopics");
     }).catch(function(err) {
       throw err;
     });
