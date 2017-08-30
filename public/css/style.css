@@ -186,3 +186,7 @@ footer {
     to   { opacity: 1; }
 }
 /*Fade in CSS animation====================*/
+
+#loggedin {
+	margin-right: 25px;
+}
