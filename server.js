@@ -10,17 +10,40 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var expressValidator = require("express-validator");
 var flash = require("connect-flash");
+var cookieParser = require('cookie-parser');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+//BP
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(express.static(__dirname + "/public"));
+//validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
 //sessions
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-//validator
-//app.use(expressValidator(middlewareOptions));
 
 // Connect Flash
 app.use(flash());
@@ -33,13 +56,6 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
-
-app.use(express.static(__dirname + "/public"));
-//BP
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.set('views', path.join(__dirname, 'views/'));
 app.use(methodOverride("_method"));

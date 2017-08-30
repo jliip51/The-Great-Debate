@@ -11,7 +11,6 @@
 // });
 
 $(document).ready(function() {
-
   $(document).on("submit", "#signInForm", handleUserFormSignIn);
   $(document).on("submit", "#signUpForm", handleUserFormSignUp);
   $(document).on("submit", "#signOutForm", handleUserFormSignOut);

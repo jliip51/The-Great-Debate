@@ -42,7 +42,6 @@ passport.serializeUser(function(user, cb) {
 });
 
 passport.deserializeUser(function(id, cb) {
-  console.log(id)
   db.Users.findOne({
     where: {
       id: id

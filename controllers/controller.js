@@ -75,10 +75,8 @@ var getThreePosts = function(dbresult, cb) {
 };
 //Call all posts and filter three for home page============//
 router.get("/", function(req, res) {
-  console.log("The user is", req.user)
   db.Posts.findAll({}).then(function(dbresult) {
     getThreePosts(dbresult, function(hbsObj) {
-      console.log(hbsObj);
       //if user is logged in shows username and sign out button instead of login form
       if(req.user) {
           hbsObj.signedin = true;
