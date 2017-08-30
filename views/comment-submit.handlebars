@@ -160,23 +160,38 @@
 
 <!--end-->
 <div id= "comments" class= "container">
-  <h1 id="postcursive">Comments: </h1>
-  <hr>
+  <h1 id="postcursivetwo">Comments: </h1>
   {{#each Comments}}
   <div class="row">
     <div class="col-lg-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">{{this.User.username}} -- Votes: {{this.votes}} --{{this.id}}</h3>
-            <button class="btn btn-success btn-xs pull-right upvote" data-id="{{this.id}}" data-count="{{this.votes}}">Upvote</button>
+          <h3 class="panel-title"><strong>{{this.User.username}}</strong></h3>
         </div>
 
+
         <div id="comments-body" class="panel-body">
-              <p>{{this.body}}</p>
+              <h5><u>Commented:</u></h5>
+              <p id="commenttext">{{this.body}}</p>
               <hr>
-              <p>Reference Link:  <a target= "_blank" href={{this.links}}>{{this.links}}</a><p>
-              <p>Submitted: {{this.createdAt}}</p>
+              <h5><u>Reference Link:</u></h5>
+              <p><a target= "_blank" href={{this.links}}>{{this.links}}</a><p>
+              <hr>
+
+            <div class= "row">
+
+              <div class= "col-md-2">
+                <button class="btn btn-primary btn-md upvote" data-id="{{this.id}}" data-count="{{this.votes}}">Upvote</button>
+              </div>
+              <div class= "col-md-3">
+                <p><h5><u>Total Upvotes:</u> {{this.votes}} --{{this.id}}</h5><p>
+              </div>
+            </div>
+
+              <hr>
+              <p><h5><u>Submitted:</u></h5> {{this.createdAt}}</p>
         </div>
+
       </div>
     </div>
   </div>

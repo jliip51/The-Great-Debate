@@ -79,6 +79,15 @@ body 	{
 	font-size: 50px;
 }
 
+#postcursivetwo {
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: white;
+	font-size: 50px;
+	margin-bottom: 40px;
+}
+
+
 
 #meetthe {
 	margin-top: 40px;
@@ -152,6 +161,11 @@ footer {
 
 #about, #threeposts, #alltopics  {
 	font-family: 'Cutive Mono', monospace;
+}
+
+#commenttext {
+word-break:break-all;
+margin-right: 5px;
 }
 
 /*Fade in CSS animation====================*/
