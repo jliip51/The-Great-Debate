@@ -7,10 +7,7 @@ var home = require("../views/home");
 var router = express.Router();
 
 router.post("/signin", passport.authenticate("local"), function(req, res) {
-<<<<<<< HEAD
 
-  res.render("alltopics");
-=======
   var username = req.user.username;
   res.render("home", {signedin: true, username: username});
 });
@@ -20,7 +17,6 @@ router.post("/signout", function(req, res) {
   res.json({
     redirectTo: "/"
   })
->>>>>>> sid
 });
 
 router.post("/signup", function(req, res) {
@@ -142,7 +138,21 @@ router.get("/posts", function(req, res) {
     });
 });
 
-router.get("posts/:category")
+router.get("/posts/:category", function(req, res) {
+  db.Posts.findAll({
+    where: {
+      category: req.params.category
+    }
+  })
+    .then(function(data) {
+      var hbsObj = {
+        Posts: data
+      };
+      res.render("spectopics", hbsObj);
+    }).catch(function(err) {
+      throw err;
+    });
+});
 
 router.post("/add", function(req, res) {
   db.Comments.create(req.body).then(function(resp) {

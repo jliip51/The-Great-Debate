@@ -47,6 +47,7 @@ body 	{
 .cat-drop {
 	margin-left: 5px;
 	font-size: 16px;
+	font-family: 'Cutive Mono', monospace;
 }
 
 /*Top 3 Posts box styling*/
@@ -63,7 +64,7 @@ body 	{
 }
 
 #live {
-	margin-top: 25px;
+	margin-top: 75px;
 	margin-bottom: 25px;
 	font-family: 'Yellowtail', cursive;
 	text-align: center;
@@ -98,7 +99,7 @@ footer {
 }
 
 .navbar {
-	font-family: 'Yellowtail', cursive;
+	font-family: 'Cutive Mono', monospace;
 }
 
 
@@ -186,3 +187,7 @@ footer {
     to   { opacity: 1; }
 }
 /*Fade in CSS animation====================*/
+
+#loggedin {
+	margin-right: 25px;
+}

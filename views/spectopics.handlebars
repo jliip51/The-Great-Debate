@@ -98,13 +98,14 @@
     </div>
 </nav>
 
-  <h2 id="live">All Topics:</h2>
-<div class="container">
-  <div class="row post-row">
+{{#each Posts}}
+  <h2 id="live">{{category}}:</h2>
+    <div class="container">
+      <div class="row post-row">
 
-    {{#each Posts}}
-      <div id= "alltopics" class="col-md-4 center post-blocks">
-        <h2>{{this.topic}}</h2>
+
+        <div id= "alltopics" class="col-md-4 center post-blocks">
+          <h2>{{this.topic}}</h2>
 
         <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
       </div>
