@@ -7,6 +7,7 @@ var home = require("../views/home");
 var router = express.Router();
 
 router.post("/signin", passport.authenticate("local"), function(req, res) {
+
   var username = req.user.username;
   res.render("home", {signedin: true, username: username});
 });
@@ -16,7 +17,6 @@ router.post("/signout", function(req, res) {
   res.json({
     redirectTo: "/"
   })
-
 });
 
 router.post("/signup", function(req, res) {
@@ -107,7 +107,7 @@ router.get("/", function(req, res) {
 });
 //Render about developers page===================//
 router.get("/about", function(req, res) {
-  res.render("aboutdevelopers",);
+  res.render("aboutdevelopers");
 });
 //Get One Post By ID, display it on comment page===========//
 router.get("/post/:id", function(req, res) {
@@ -119,8 +119,7 @@ router.get("/post/:id", function(req, res) {
     var hbsObj = {
       Posts: data
     };
-    
-    res.render("comment-submit");
+    res.render("comment-submit", hbsObj);
   }).catch(function(err){
     throw err;
   });
@@ -132,28 +131,13 @@ router.get("/posts", function(req, res) {
       var hbsObj = {
         Posts: data
       };
-      
-      res.render("alltopics");
+      res.render("alltopics", hbsObj);
     }).catch(function(err) {
       throw err;
     });
 });
 
-router.get("/posts/:category", function(req, res) {
-  db.Posts.findAll({
-    where: {
-      category: req.params.category
-    }
-  })
-    .then(function(data) {
-      var hbsObj = {
-        Posts: data
-      };
-      res.render("spectopics");
-    }).catch(function(err) {
-      throw err;
-    });
-});
+router.get("posts/:category")
 
 router.post("/add", function(req, res) {
   db.Comments.create(req.body).then(function(resp) {
