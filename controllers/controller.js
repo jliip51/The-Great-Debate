@@ -137,7 +137,21 @@ router.get("/posts", function(req, res) {
     });
 });
 
-router.get("posts/:category")
+router.get("/posts/:category", function(req, res) {
+  db.Posts.findAll({
+    where: {
+      category: req.params.category
+    }
+  })
+    .then(function(data) {
+      var hbsObj = {
+        Posts: data
+      };
+      res.render("spectopics", hbsObj);
+    }).catch(function(err) {
+      throw err;
+    });
+});
 
 router.post("/add", function(req, res) {
   db.Comments.create(req.body).then(function(resp) {

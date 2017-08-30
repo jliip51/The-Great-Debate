@@ -47,6 +47,7 @@ body 	{
 .cat-drop {
 	margin-left: 5px;
 	font-size: 16px;
+	font-family: 'Cutive Mono', monospace;
 }
 
 /*Top 3 Posts box styling*/
@@ -98,7 +99,7 @@ footer {
 }
 
 .navbar {
-	font-family: 'Yellowtail', cursive;
+	font-family: 'Cutive Mono', monospace;
 }
 
 
