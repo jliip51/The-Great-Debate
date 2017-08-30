@@ -99,6 +99,7 @@ router.get("/about", function(req, res) {
 //Get One Post By ID, display it on comment page===========//
 router.get("/post/:id", isAuthenticated, function(req, res) {
   var UserId = req.user.id;
+  var Username = req.user.username;
   db.Posts.findOne({
     where: {
       id: req.params.id
@@ -109,6 +110,7 @@ router.get("/post/:id", isAuthenticated, function(req, res) {
       Posts: data,
       Comments: data.Comments,
       UserId: UserId,
+      Username: Username
     };
     res.render("comment-submit", hbsObj);
   }).catch(function(err){
@@ -139,7 +141,7 @@ router.get("/posts", function(req, res) {
     }).catch(function(err) {
       throw err;
     });
-    
+
   }
 });
 
