@@ -103,12 +103,24 @@
   {{#if user}}
   <h1 id= "welcomeadmin">Welcome {{username}}! What Topic would you like to add today?</h1>
   {{/if}}
-  <div class= "jumbotron">
+  <div id= "admincreate" class="jumbotron">
     <form>
       <div class="form-group">
-        <label for="category">Category</label>
-        <input type="text-box" class="form-control" id="category">
-      </div>
+  <label for="sel1">Select list:</label>
+  <select class="form-control" id="sel1">
+    <option>Politics</option>
+    <option>Sports</option>
+    <option>Film</option>
+    <option>Books</option>
+    <option>Music</option>
+    <option>Technology</option>
+    <option>Transportation</option>
+    <option>Science</option>
+    <option>Popular Culture</option>
+    <option>Conspiracy Theories</option>
+    <option>Other</option>
+  </select>
+</div>
       <div class="form-group">
         <label for="topic">Topic</label>
         <input type="text-box" class="form-control" id="topic">

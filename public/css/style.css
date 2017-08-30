@@ -172,6 +172,9 @@ word-break:break-all;
 margin-right: 5px;
 }
 
+#admincreate {
+	font-family: 'Cutive Mono', monospace;
+}
 /*Fade in CSS animation====================*/
 #alldevs, #meetthe, #homebody, #commentbody, #comments-body, #comments, #alltopics {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
