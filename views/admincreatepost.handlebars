@@ -65,7 +65,7 @@
       {{#if user}}
       <form class="navbar-form navbar-right" id="signOutForm">
         <div class="form-group">
-        <p style="color: white">{{username}}</p>
+        <p id= "loggedin" style="color: white">Logged in as: {{username}}</p>
         </div>
         <button type="submit" class="btn btn-success">Sign out</button>
       </form>
@@ -87,9 +87,9 @@
 </nav>
 
 <div id="admincreate" class= "container">
-  {{#if user}}
+  <!-- {{#if user}}
   <h1>Welcome {{username}}:</h1>
-  {{/if}}
+  {{/if}} -->
   <div class= "jumbotron">
     <form>
       <div class="form-group">

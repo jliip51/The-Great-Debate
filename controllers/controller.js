@@ -90,6 +90,10 @@ router.get("/", function(req, res) {
 });
 //Render about developers page===================//
 router.get("/about", function(req, res) {
+  if(req.user){
+    var username=req.user.username;
+    res.render("aboutdevelopers",{username});
+  }else
   res.render("aboutdevelopers");
 });
 //Get One Post By ID, display it on comment page===========//
@@ -101,11 +105,10 @@ router.get("/post/:id", isAuthenticated, function(req, res) {
     },
     include: [{ model: db.Comments, include: [{ model: db.Users}]}]
   }).then(function(data) {
-
     var hbsObj = {
       Posts: data,
       Comments: data.Comments,
-      UserId: UserId
+      UserId: UserId,
     };
     res.render("comment-submit", hbsObj);
   }).catch(function(err){
@@ -114,18 +117,35 @@ router.get("/post/:id", isAuthenticated, function(req, res) {
 });
 //Display all posts regardless of category and display them on all topics page==========//
 router.get("/posts", function(req, res) {
+  if(req.user){
+  var username=req.user.username;
   db.Posts.findAll({})
     .then(function(data) {
       var hbsObj = {
+        username:username,
         Posts: data
       };
       res.render("alltopics", hbsObj);
     }).catch(function(err) {
       throw err;
     });
+  }else{
+    db.Posts.findAll({})
+      .then(function(data) {
+        var hbsObj = {
+          Posts: data
+      };
+      res.render("alltopics", hbsObj);
+    }).catch(function(err) {
+      throw err;
+    });
+    
+  }
 });
 
 router.get("/posts/:category", function(req, res) {
+  if(req.user){
+  var username=req.user.username;
   db.Posts.findAll({
     where: {
       category: req.params.category
@@ -133,12 +153,28 @@ router.get("/posts/:category", function(req, res) {
   })
     .then(function(data) {
       var hbsObj = {
-        Posts: data
+        Posts: data,
+        username:username
       };
       res.render("spectopics", hbsObj);
     }).catch(function(err) {
       throw err;
     });
+  }else{
+    db.Posts.findAll({
+      where: {
+        category: req.params.category
+      }
+    })
+      .then(function(data) {
+        var hbsObj = {
+          Posts: data,
+        };
+        res.render("spectopics", hbsObj);
+      }).catch(function(err) {
+        throw err;
+      });
+  }
 });
 
 router.post("/add", function(req, res) {
@@ -163,7 +199,8 @@ router.post("/upvote", function(req, res) {
   });
 });
 
-router.get("/admin", function(req, res) {
-  res.render("admincreatepost");
+router.get("/admin", isAuthenticated, function(req, res) {
+  var username=req.user.username;
+  res.render("admincreatepost",{username});
 })
 module.exports = router;
