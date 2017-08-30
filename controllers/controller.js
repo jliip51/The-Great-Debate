@@ -181,4 +181,7 @@ router.post("/upvote", function(req, res) {
   });
 });
 
+router.get("/admin", function(req, res) {
+  res.render("admincreatepost");
+})
 module.exports = router;
