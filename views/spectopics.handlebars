@@ -1,0 +1,116 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register Here</h4>
+      </div>
+      <form id="signUpForm">
+      <div class="modal-body">
+        {{#if errors}}
+              {{#each errors}}
+                <div class="alert alert-danger" id="err">{{msg}}</div>
+              {{/each}}
+        {{/if}}
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+          <div class="col-sm-10">
+            <input type="name" class="form-control" id="username" placeholder="username">
+          </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" href="/">The GR8 DB8</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="cat-drop"><a href="/posts">All Topics</a></li>
+            <li class="cat-drop"><a href="/posts/Politics">Politics</a></li>
+            <li class="cat-drop"><a href="/posts/Sports">Sports</a></li>
+            <li class="cat-drop"><a href="/posts/Film">Film</a></li>
+            <li class="cat-drop"><a href="/posts/Books">Books</a></li>
+            <li class="cat-drop"><a href="/posts/Music">Music</a></li>
+            <li class="cat-drop"><a href="/posts/Technology">Technology</a></li>
+            <li class="cat-drop"><a href="/posts/Transportation">Transportation</a></li>
+            <li class="cat-drop"><a href="/posts/Science">Science</a></li>
+            <li class="cat-drop"><a href="/posts/PopularCulture">Popular Culture</a></li>
+            <li class="cat-drop"><a href="/posts/ConspiracyTheories">Conspiracy Theories</a></li>
+            <li class="cat-drop"><a href="/posts/Other">Other</a></li>
+          </ul>
+        </li>
+      </ul>
+      {{#if user}}
+      <form class="navbar-form navbar-right" id="signOutForm">
+        <div class="form-group">
+        <p id= "loggedin" style="color: white">Logged in as: {{username}}</p>
+        </div>
+        <button type="submit" class="btn btn-success">Sign out</button>
+      </form>
+      {{else}}
+      <form class="navbar-form navbar-right" id="signInForm">
+        <div class="form-group">
+          <input type="text" placeholder="Email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control" id="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          Sign Up
+        </button>
+      </form>
+      {{/if}}
+    </div>
+</nav>
+
+{{#each Posts}}
+  <h2 id="live">{{category}}:</h2>
+    <div class="container">
+      <div class="row post-row">
+
+
+        <div id= "alltopics" class="col-md-4 center post-blocks">
+          <h2>{{this.topic}}</h2>
+
+        <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+      </div>
+    {{/each}}
+
+  </div>
+</div>

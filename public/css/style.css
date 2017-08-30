@@ -1,0 +1,216 @@
+/*animated background css*/
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+
+}
+
+body 	{
+	/*background-image: url("/images/bkgrnd-gray.png");*/
+	background-image: url("/images/light.jpg");
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+	background-repeat: repeat-y;
+	animation: animatedBackground 80s linear infinite;
+}
+/*end animated background css*/
+
+.jumbotron {
+	background-color: rgba(0,0,0,0.4);   /*rgba color for transparent jumbotron*/
+	border-radius: 5px;
+	margin-top: 80px;
+	text-align: center;
+	color: white;
+	font-family: 'Yellowtail', cursive;
+}
+
+.center {
+	text-align: center;
+	border: 2px !important;
+}
+
+.pic {
+	border-radius: 5px;
+}
+
+.devInfo {
+	margin-top: 40px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.center {
+	text-align: center;
+}
+
+/*Dropdown list items styling*/
+.cat-drop {
+	margin-left: 5px;
+	font-size: 16px;
+	font-family: 'Cutive Mono', monospace;
+}
+
+/*Top 3 Posts box styling*/
+.post-row {
+	display: flex;
+	justify-content: space-around;
+}
+
+.post-blocks {
+	background-color: lightgray;
+	margin: 0 10px 0 10px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#live {
+	margin-top: 75px;
+	margin-bottom: 25px;
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: white;
+	font-size: 50px;
+}
+
+#postcursive {
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: black;
+	font-size: 50px;
+}
+
+#postcursivetwo {
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: white;
+	font-size: 50px;
+	margin-bottom: 40px;
+}
+
+#welcomeadmin {
+	font-family: 'Cutive Mono', monospace;
+	color:white;
+	text-align: center;
+}
+
+#meetthe {
+	margin-top: 40px;
+	margin-bottom: 25px;
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: white;
+	font-size: 50px;
+}
+
+footer {
+	color: white;
+	background-color: #242424;
+	height: 80px;
+	margin-top: 70px;
+	font-family: 'Yellowtail', cursive;
+	font-size: 20px;
+}
+
+.navbar {
+	font-family: 'Cutive Mono', monospace;
+}
+
+
+#meetthe {
+	margin-top: 40px;
+	margin-bottom: 25px;
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: white;
+	font-size: 50px;
+}
+
+
+#post-table {
+	margin-top: 100px;
+	border-style: solid;
+  border-width: 1px 1px 1px 1px;
+	border-color: #242424;
+
+}
+
+.pic {
+	width: 200px;
+	height: 225px;
+	text-align:center;
+}
+
+#devtext {
+	text-align: center;
+	font-family: 'Cutive Mono', monospace;
+	font-size: 15px;
+	color:white;
+}
+
+#devname {
+	font-family: 'Yellowtail', cursive;
+	font-size: 40px;
+	color:white;
+}
+
+#devpanel {
+	background-color: rgba(0,0,0,0.4);
+}
+
+#post-body {
+	text-align: center;
+	font-family: 'Cutive Mono', monospace;
+	font-size: 20px;
+}
+
+#about, #threeposts, #alltopics  {
+	font-family: 'Cutive Mono', monospace;
+}
+
+#commenttext {
+word-break:break-all;
+margin-right: 5px;
+}
+
+/*Fade in CSS animation====================*/
+#alldevs, #meetthe, #homebody, #commentbody, #comments-body, #comments, #alltopics {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/*Fade in CSS animation====================*/
+
+#loggedin {
+	margin-right: 25px;
+	margin-top:10px;
+}
+
+#admincreate {
+	margin-top: 75px;
+}
