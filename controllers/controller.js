@@ -96,10 +96,12 @@ router.get("/post/:id", function(req, res) {
     },
     include: [{ model: db.Comments, include: [{ model: db.Users}]}]
   }).then(function(data) {
-    // var hbsObj = {
-    //   Posts: data
-    // };
-    // res.render("comment-submit", hbsObj);
+
+    var hbsObj = {
+      Posts: data,
+      Comments: data.Comments
+    };
+    res.render("comment-submit", hbsObj);
   }).catch(function(err){
     throw err;
   });
@@ -121,9 +123,22 @@ router.get("posts/:category")
 
 router.post("/add", function(req, res) {
   db.Comments.create(req.body).then(function(resp) {
-    console.log("/post/"+resp.PostId)
-    return res.redirect("/post/" + resp.PostId);
+    res.redirect("/post/" + resp.PostId);
   }).catch(function(err){
+    throw err;
+  });
+});
+
+router.post("/upvote", function(req, res) {
+  db.Comments.update({
+    votes: req.body.votes
+  },{
+    where: {
+      id: req.body.id
+    }
+  }).then(function(resp) {
+    res.redirect("/post");
+  }).catch(function(err) {
     throw err;
   });
 });

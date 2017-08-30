@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $(document).on("submit", "#commentForm", handleNewCommentForm);
+  // $(document).on("click", ".upvote", handleUpvote);
 
   //Comment Form Handler Function//
   function handleNewCommentForm(event) {
@@ -26,6 +27,25 @@ $(document).ready(function() {
     }).catch(function(err) {
       console.log(err);
     });
-  }
+  };
+
+  $('.upvote').on('click', function() {
+    var voteCount = $(this).attr('data-count');
+    console.log('voteCount----')
+    console.log(voteCount)
+
+    var id = $(this).attr('data-id');
+    var upvote = {
+      id: parseInt(id),
+      votes: parseInt(voteCount) + 1,
+    }
+    console.log('jsupvote')
+    console.log(upvote)
+    $.post("/upvote", upvote).then(function(data) {
+      return data;
+    }).catch(function(err) {
+      console.log(err);
+    });
+  });
 
 });

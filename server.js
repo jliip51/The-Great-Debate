@@ -79,6 +79,8 @@ app.use('/posts', routes);
 app.use('/posts/:category', routes);
 //View Single Post Route//(For Calling single post to be reviewed and commented on)
 app.use('/post/:id', routes);
+//Upvote
+app.use('/upvote', routes);
 
 
 db.sequelize.sync({force: false}).then(function() {

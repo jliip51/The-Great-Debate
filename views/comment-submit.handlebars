@@ -49,7 +49,7 @@
       </div>
       <form id="commentForm">
         <input type="hidden" id="postid" name="PostId" value="{{Posts.id}}">
-        <input type="hidden" id="userid" name="UserId" value="544cb234-f949-4ce8-8b2d-f036667bcc49"> <!--test value needs to change {{User.id}} once user valiation is supported-->
+        <input type="hidden" id="userid" name="UserId" value="042f871f-dcb5-4c96-adfe-25a38a623158"> <!--test value needs to change {{User.id}} once user valiation is supported-->
         <div class="modal-body">
           <div class="form-group">
             <label for="commenting" class="col-sm-2 control-label">Comment</label>
@@ -120,55 +120,49 @@
   <div id= "post-table" class= "panel panel-default">
     <div class= "panel-body"
 
-    {{#Posts}}
-      <div id= "post-body" class="col-md-4 center post-blocks">
-        <h1 id="postcursive">Topic: {{this.topic}}</h1>
-        <hr>
-        <h3>Category: {{this.category}}</h3>
-        <hr>
-        <p>{{this.description}}</p>
-        <hr>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal">
-          Comment
-        </button>
-      </div>
-    {{/Posts}}
-
+      {{#Posts}}
+        <div id= "post-body" class="col-md-4 center post-blocks">
+          <h1 id="postcursive">Topic: {{this.topic}}</h1>
+          <hr>
+          <h3>Category: {{this.category}}</h3>
+          <hr>
+          <p>{{this.description}}</p>
+          <hr>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal">
+            Comment
+          </button>
+        </div>
+      {{/Posts}}
+    </div>
     </div>
   </div>
 </div>
 
+<!--end-->
 <div id= "comments" class= "container">
+  <h1 id="postcursive">Comments: </h1>
+  <hr>
+  {{#each Comments}}
   <div class="row">
     <div class="col-lg-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Comments</h3>
+          <h3 class="panel-title">{{this.User.username}} -- Votes: {{this.votes}} --{{this.id}}</h3>
+            <button class="btn btn-success btn-xs pull-right upvote" data-id="{{this.id}}" data-count="{{this.votes}}">Upvote</button>
         </div>
 
         <div id="comments-body" class="panel-body">
-          <table class="table table-hover" id="safe-table">
-            <thead>
-                <th>User</th>
-                <th>Comment</th>
-                <th>Upvotes</th>
-            </thead>
-
-            <tbody id="comment-table">
-
-              {{#comments}}
-              <th>{{this.user}}</th>
-              <th>{{this.comment}}</th>
-              <th>{{this.upvotes}}</th>
-              {{/comments}}
-
-            </tbody>
-          </table>
+              <p>{{this.body}}</p>
+              <hr>
+              <p>Reference Link:  <a href={{this.links}}>{{this.links}}</a><p>
+              <p>Submitted: {{this.createdAt}}</p>
         </div>
       </div>
     </div>
   </div>
-  </div>
+  {{/each}}
+</div>
+<!--end-->
 </div>
 
 <footer class="text-center" id="footer">
