@@ -87,7 +87,11 @@ body 	{
 	margin-bottom: 40px;
 }
 
-
+#welcomeadmin {
+	font-family: 'Cutive Mono', monospace;
+	color:white;
+	text-align: center;
+}
 
 #meetthe {
 	margin-top: 40px;
