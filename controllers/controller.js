@@ -44,21 +44,6 @@ router.post("/signup", function(req, res) {
     });
   }
 });
-
-// router.get("/user_data", isAuthenticated, function(req, res) {
-//   if (!req.user) {
-//     // The user is not logged in, send back an empty object
-//     res.json({});
-//   } else {
-//     // Otherwise send back the user's email and id
-//     // Sending back a password, even a hashed password, isn't a good idea
-//     res.json({
-//       username: req.user.username,
-//       id: req.user.id
-//     });
-//   }
-// });
-
 //Iterates through dbresult for posts to get unique category values to display in the dropdown//
 var uniqueCategories = function(dbresult, obj, cb) {
   var allCatArr = [];
