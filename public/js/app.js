@@ -1,20 +1,8 @@
-// var Handlebars = require('express-handlebars');
-//
-// Handlebars.registerHelper('each_upto', function(ary, max, options) {
-//     if(!ary || ary.length == 0)
-//         return options.inverse(this);
-//
-//     var result = [ ];
-//     for(var i = 0; i < max && i < ary.length; ++i)
-//         result.push(options.fn(ary[i]));
-//     return result.join('');
-// });
-
 $(document).ready(function() {
   $(document).on("submit", "#signInForm", handleUserFormSignIn);
   $(document).on("submit", "#signUpForm", handleUserFormSignUp);
   $(document).on("submit", "#signOutForm", handleUserFormSignOut);
-
+  $(document).on("submit", "#createPost", handleNewTopicForm);
 
   function handleUserFormSignOut(e) {
       event.preventDefault();
@@ -68,15 +56,30 @@ $(document).ready(function() {
     $('#username').val("");
     $('#inputEmail3').val("");
     $('#inputPassword3').val("");
-    console.log(newUser);
+
     $.post("/signup", newUser).then(function(data) {
-      console.log(data);
-      console.log(arguments);
       $('body').html(data);
+      window.location.href = "/";
     });
   };
 
-  $.get("/user_data").then(function(data) {
-    $("meetthe").text(data.email);
-  });
+  //New Topic Form Handler Function//
+  function handleNewTopicForm(event) {
+    event.preventDefault();
+    var newTopicPost = {
+      category: $('#sel1').val().trim(),
+      topic: $('#topic').val().trim(),
+      description: $('#description').val().trim(),
+    }
+    $('#sel1').val("");
+    $('#topic').val("");
+    $('#description').val("");
+
+    $.post("/admin", newTopicPost).then(function(data) {
+       console.log(data);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  };
+
 });

@@ -204,4 +204,13 @@ router.get("/admin", isAuthenticated, function(req, res) {
   res.render("admincreatepost",{username});
 })
 
+router.post("/admin", function(req, res) {
+  db.Posts.create(req.body).then(function(resp) {
+    return resp;
+  }).catch(function(err){
+    throw err;
+  });
+});
+
+
 module.exports = router;
