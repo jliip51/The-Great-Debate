@@ -1,74 +1,205 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register Here</h4>
+      </div>
+      <form id="signUpForm">
+      <div class="modal-body">
+        {{#if errors}}
+              {{#each errors}}
+                <div class="alert alert-danger" id="err">{{msg}}</div>
+              {{/each}}
+        {{/if}}
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+          <div class="col-sm-10">
+            <input type="name" class="form-control" id="username" placeholder="username">
+          </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+      <a class="navbar-brand" href="/">The GR8 DB8</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="cat-drop"><a href="/posts">All Topics</a></li>
+            <li class="cat-drop"><a href="/posts/Politics">Politics</a></li>
+            <li class="cat-drop"><a href="/posts/Sports">Sports</a></li>
+            <li class="cat-drop"><a href="/posts/Film">Film</a></li>
+            <li class="cat-drop"><a href="/posts/Books">Books</a></li>
+            <li class="cat-drop"><a href="/posts/Music">Music</a></li>
+            <li class="cat-drop"><a href="/posts/Technology">Technology</a></li>
+            <li class="cat-drop"><a href="/posts/Transportation">Transportation</a></li>
+            <li class="cat-drop"><a href="/posts/Science">Science</a></li>
+            <li class="cat-drop"><a href="/posts/PopularCulture">Popular Culture</a></li>
+            <li class="cat-drop"><a href="/posts/ConspiracyTheories">Conspiracy Theories</a></li>
+            <li class="cat-drop"><a href="/posts/Other">Other</a></li>
+          </ul>
+        </li>
+      </ul>
+      {{#if user}}
+      <form class="navbar-form navbar-right" id="signOutForm">
+        <div class="form-group">
+        <p id= "loggedin" style="color: white">Logged in as: {{username}}</p>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+        <button type="submit" class="btn btn-success">Sign out</button>
+      </form>
+      {{else}}
+      <form class="navbar-form navbar-right" id="signInForm">
+        <div class="form-group">
+          <input type="text" placeholder="Email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control" id="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          Sign Up
+        </button>
+      </form>
+      {{/if}}
+    </div>
+</nav>
 
-    <div class="row">
-      <div>
-        <h3>Lorem ipsum dolor sit amet, no pri eius impetus. No omittam aliquando intellegebat pro, cibo voluptaria elaboraret ne mea. Cum justo soleat temporibus ad, tota habeo dolor an nec. Labore molestiae quo an. Erat oblique cu vis. Ad falli laboramus usu, natum nonumes mei ne, sint labores splendide mel at.</h3>
+<div class="row devInfo">
+  <div class="container">
+    <h3 id="meetthe">Meet The Developers</h3>
+  </div>
+</div>
+
+
+<div id="alldevs" class= "container">
+
+  <div class= "col-md-12">
+    <div class= "panel panel-default" id="devpanel">
+      <div class= "row">
+
+        <div class= "col-md-3">
+          <img class="img-responsive center-block"  src="images/David.PNG" alt="Picture">
+        </div>
+
+        <div id="devtext" class= "col-md-9">
+          <h3 id="devname" class="center">David Thrasher</h3>
+          <p class="center">An avid fan of all things music and technology, David Thrasher is a Fullstack Developer hailing from Atlanta, Ga. Follow him on his coding adventures by clicking the GitHub and Linkedin links below!</p>
+          <p class="center"><a target="_blank" href="https://github.com/davidthrasher" class="btn btn-primary" role="button">GitHub</a> <a target="_blank" href="https://www.linkedin.com/in/david-thrasher/" class="btn btn-default" role="button">Linkedin</a></p>
+        </div>
       </div>
     </div>
+  </div>
 
+  <div class= "col-md-12">
+    <div class= "panel panel-default" id="devpanel">
+      <div class= "row">
 
-    <div class="row">
-      <div class="col-sm-4 col-md-3">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-            <h3>David Thrasher</h3>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-          </div>
+        <div id="devtext" class= "col-md-9">
+          <h3 id="devname" class="center">Jeff Liipfert</h3>
+          <p class="center">A seasoned advertising professional, father, mountain biker & zymurgist. Jeff is a Full Stack Developer that thrives on having a good problem to solve. Connect with Jeff and see what he has brewing on his Github and LinkedIn.</p>
+          <p class="center"><a target="_blank" href="https://github.com/jliip51" class="btn btn-primary" role="button">GitHub</a> <a target="_blank" href="https://www.linkedin.com/in/jeff-liipfert-663a565/" class="btn btn-default" role="button">Linkedin</a></p>
         </div>
-      </div>
-      <div class="col-sm-4 col-md-3">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-            <h3>Jeff Liipfert</h3>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-          </div>
+
+        <div class= "col-md-3">
+          <img class="img-responsive center-block" src="images/Jeff.PNG" alt="Picture">
         </div>
+
       </div>
-      <div class="col-sm-4 col-md-3">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-            <h3>Siddharth Patel</h3>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-          </div>
+    </div>
+  </div>
+
+  <div class= "col-md-12">
+    <div class= "panel panel-default" id="devpanel">
+      <div class= "row">
+
+        <div class= "col-md-3">
+          <img class="img-responsive center-block" src="images/Siddharth.PNG" alt="Picture">
         </div>
-      </div>
-      <div class="col-sm-4 col-md-3">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-            <h3>James Littlefield</h3>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-          </div>
+
+        <div id="devtext" class= "col-md-9">
+          <h3 id="devname" class="center">Siddharth Patel</h3>
+          <p class="center">An avid fan of all things music and technology, David Thrasher is a Fullstack Developer hailing from Atlanta, Ga. Follow him on his coding adventures by clicking the GitHub and Linkedin links below!</p>
+        <p class="center"><a target="_blank" href="https://github.com/sid845" class="btn btn-primary" role="button">GitHub</a> <a target="_blank" href="https://www.linkedin.com/in/siddharth-patel-456506134/" class="btn btn-default" role="button">Linkedin</a></p>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class= "col-md-12">
+    <div class= "panel panel-default" id="devpanel">
+      <div class= "row">
+
+        <div id="devtext" class= "col-md-9">
+          <h3 id="devname" class="center">James Littlefield</h3>
+          <p class="center">An avid fan of all things music and technology, David Thrasher is a Fullstack Developer hailing from Atlanta, Ga. Follow him on his coding adventures by clicking the GitHub and Linkedin links below!</p>
+        <p class="center"><a target="_blank" href="https://github.com/musicteachj" class="btn btn-primary" role="button">GitHub</a> <a target="_blank" href="https://www.linkedin.com/in/james-littlefield-93037713b/" class="btn btn-default" role="button">Linkedin</a></p>
+        </div>
+
+        <div class= "col-md-3">
+          <img class="img-responsive center-block" src="images/James.PNG" alt="Picture">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+  </div>
+
+  <footer class="text-center">
+
+    <br>
+
+    <p>&copy; 2017 The Great DB8</p>
+  </footer>
+</div>
+
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>

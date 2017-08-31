@@ -1,6 +1,7 @@
 'use strict';
+var bcrypt=require("bcrypt-nodejs");
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
+  var Users = sequelize.define('Users', {
     id: {
       allowNull: false,
       primaryKey: true,
@@ -10,22 +11,37 @@ module.exports = function(sequelize, DataTypes) {
     username: {
       allowNull: false,
       unique: true,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      validate:{
+        notEmpty:true
+      }
     },
     email: {
       allowNull: false,
       unique: true,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      validate:{
+        isEmail:true
+      }
     },
     password: {
       allowNull: false,
       type: DataTypes.STRING
     }
   });
-      User.associate = function(models) {
-        User.hasMany(models.Posts, {
-          onDelete: 'CASCADE'
-        });
-      };
-  return User;
+  Users.prototype.validPassword=function(password) {
+    return bcrypt.compareSync(password, this.password);
+  }
+  Users.hook("beforeCreate",function(user,options){
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+  });
+  Users.associate = function(models) {
+    Users.hasMany(models.Comments, {
+      foreignKey: {
+        allowNull: false
+      },
+      onDelete: "CASCADE"
+    });
+  };
+  return Users;
 };
