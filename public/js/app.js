@@ -6,7 +6,6 @@ $(document).ready(function() {
 
   function handleUserFormSignOut(e) {
       event.preventDefault();
-    console.log("Reached sign out handler");
     $.post("/signout", {}, function(res) {
       console.log("Signed out")
       window.location = res.redirectTo || "/"
@@ -15,7 +14,6 @@ $(document).ready(function() {
 
   function handleUserFormSignIn(event) {
     event.preventDefault();
-    console.log('handler is working');
     var userCreds = {
       email: $('#email').val().trim(),
       password: $('#password').val().trim()
@@ -33,7 +31,6 @@ $(document).ready(function() {
 
   function handleUserFormSignUp(event) {
     event.preventDefault();
-    console.log('working');
     var newUser = {
       username: $('#username').val().trim(),
       email: $('#inputEmail3').val().trim(),

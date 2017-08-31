@@ -72,6 +72,12 @@ body 	{
 	margin-top: 10px;
 }
 
+.voteCt {
+	margin-top: 3px;
+	font-size: 18px;
+	color: green;
+}
+
 #live {
 	margin-top: 75px;
 	margin-bottom: 25px;
