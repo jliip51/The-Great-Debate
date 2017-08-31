@@ -32,21 +32,32 @@ $(document).ready(function() {
   };
 
   $('.upvote').on('click', function() {
-    var voteCount = $(this).attr('data-count');
     var postid = $(this).attr('data-postid');
     var id = $(this).attr('data-id');
-    var newVoteCt = parseInt(voteCount) + 1
-    var upvote = {
-      id: parseInt(id),
-      votes: newVoteCt,
-    }
-    $.post("/upvote", upvote).then(function(data) {
+    var userid = $(this).attr('data-user')
+    var savedId = sessionStorage.getItem('commentId' + id);
+    var savedUserId = sessionStorage.getItem('userId' + id);
+    var voteCount = $(this).attr('data-count');
 
-      $('#comment' + id).removeClass('upvote btn-success').addClass('btn-danger');
-      $('#upvote' + id).html(newVoteCt);
-    }).catch(function(err) {
-      console.log(err);
-    });
+    if (savedId === id && savedUserId === userid) {
+      console.log("you already voted on this post");
+      $("#comment" + savedId).removeClass('upvote btn-success').addClass('btn-danger').html("Already Voted");
+    } else {
+      sessionStorage.setItem('commentId' + id, id);
+      sessionStorage.setItem('userId' + id, userid);
+      var newVoteCt = parseInt(voteCount) + 1
+      var upvote = {
+        id: parseInt(id),
+        votes: newVoteCt,
+      }
+      $.post("/upvote", upvote).then(function(data) {
+
+        $('#comment' + id).removeClass('upvote btn-success').addClass('btn-danger').html("Already Voted");
+        $('#upvote' + id).html(newVoteCt);
+      }).catch(function(err) {
+        console.log(err);
+      });
+    }
   });
 
 });

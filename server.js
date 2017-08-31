@@ -84,7 +84,7 @@ app.use('/post/:id', routes);
 app.use('/upvote', routes);
 
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force: false}).then(function() {
 	app.listen(PORT, function(err) {
 		if (err) throw err;
 		console.log("Listening on port: " + PORT);
