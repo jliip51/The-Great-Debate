@@ -167,6 +167,20 @@ footer {
 	font-family: 'Cutive Mono', monospace;
 }
 
+#alltopicstwo {
+	font-family: 'Cutive Mono', monospace;
+  margin-top: 5px;
+ 	margin-bottom: 5px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#flex {
+	display:flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
 #commenttext {
 word-break:break-all;
 margin-right: 5px;
