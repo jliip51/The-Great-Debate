@@ -13,11 +13,11 @@ $(document).ready(function() {
       PostId: parseInt($('#postid').val().trim()),
       UserId: $("#userid").val().trim()
     }
-    if(!userid || userid === "") {
-      newComment.UserId = "anonymous" //doesn't work with UUID DataType, has to be 36Char and unique//
-    } else {
-      newComment.UserId = userid
-    }
+    // if(!userid || userid === "") {
+    //   newComment.UserId = "anonymous" //doesn't work with UUID DataType, has to be 36Char and unique//
+    // } else {
+    //   newComment.UserId = userid
+    // }
     $('#comment').val("");
     $('#citedlink').val("");
     $('#commentModal').modal('toggle');

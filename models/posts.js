@@ -18,10 +18,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       len: [1, 100]
     },
-    start: {
-      allowNull: false,
-      type: DataTypes.DATE
-    },
     expired: {
       defaultValue: false,
       type: DataTypes.BOOLEAN

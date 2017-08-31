@@ -23,10 +23,6 @@ module.exports = {
         type: Sequelize.TEXT,
         len: [1, 100]
       },
-      start: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
       expired: {
         defaultValue: false,
         type: Sequelize.BOOLEAN
