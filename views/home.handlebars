@@ -114,9 +114,11 @@
 
       {{#each post}}
         <div id= "threeposts" class="col-md-4 center post-blocks">
+          <div class="text-wrap">
           <h2>{{this.topic}}</h2>
           <p>{{this.description}}</p>
-          <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+        </div>
+          <p id="comment-btn"><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
         </div>
       {{/each}}
 

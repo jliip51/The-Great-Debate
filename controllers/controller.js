@@ -193,7 +193,7 @@ router.post("/upvote", function(req, res) {
       id: req.body.id
     }
   }).then(function(resp) {
-    res.redirect("/post");
+    res.json(resp);
   }).catch(function(err) {
     throw err;
   });

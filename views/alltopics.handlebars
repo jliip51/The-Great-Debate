@@ -101,16 +101,20 @@
 
 <h2 id="live">All Topics:</h2>
 <div id="flex" class="container">
-  {{#each Posts}}
   <div class="row post-row">
 
+    {{#each Posts}}
+      <div id="alltopics" class="col-md-4 center post-blocks">
+        <div class="text-wrap">
+        <h2>{{this.topic}}</h2>
+        <p>{{this.description}}</p>
+        </div>
+        <p id="comment-btn"><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+      </div>
+    {{/each}}
 
-    <div id= "alltopics" class="col-md-4 post-blocks">
-      <h2>{{this.topic}}</h2>
-
-      <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
     </div>
-  {{/each}}
+
 
 </div>
 </div>
