@@ -62,7 +62,7 @@ var uniqueCategories = function(dbresult, obj, cb) {
 var getThreePosts = function(dbresult, cb) {
   console.log(dbresult)
   var postArr = [];
-  for (i = 0; i < 3; i++) {
+  for (i = dbresult.length - 1; i > dbresult.length - 4; i--) {
     postArr.push(dbresult[i]);
   }
   var obj = {
