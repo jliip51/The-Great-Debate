@@ -99,19 +99,20 @@
     </div>
 </nav>
 
-  <h2 id="live">{{Posts.0.category}}:</h2>
-    <div class="container">
-      {{#each Posts}}
-      <div class="row post-row">
-
-
-        <div id= "alltopics" class="col-md-4 center post-blocks">
-          <h2>{{this.topic}}</h2>
-
-        <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+<h2 id="live">{{Posts.0.category}}</h2>
+<div class="container">
+  {{#each Posts}}
+    <div id="allsearchpanels" class="col-md-offset-2 col-md-8">
+      <div class="panel">
+        <h2><i>Topic:</i></h2>
+        <h4><strong>{{this.topic}}</strong></h4>
+        <hr>
+        <h2><i>Category:</i></h2>
+        <h4><strong>{{this.category}}</strong></h4>
+        <hr>
+        <p id="comment-btn"><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+        <hr>
       </div>
     </div>
-    {{/each}}
-
-
+  {{/each}}
 </div>
