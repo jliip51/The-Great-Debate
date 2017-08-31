@@ -99,9 +99,9 @@
     </div>
 </nav>
 
-{{#each Posts}}
-  <h2 id="live">{{category}}:</h2>
+  <h2 id="live">{{Posts.0.category}}:</h2>
     <div class="container">
+      {{#each Posts}}
       <div class="row post-row">
 
 
@@ -110,7 +110,8 @@
 
         <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
       </div>
+    </div>
     {{/each}}
 
-  </div>
+
 </div>

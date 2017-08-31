@@ -104,10 +104,12 @@
   <div class="row post-row">
 
     {{#each Posts}}
-      <div id= "alltopics" class="col-md-4 center post-blocks">
+      <div id="alltopics" class="col-md-4 center post-blocks">
+        <div class="text-wrap">
         <h2>{{this.topic}}</h2>
-
-        <p><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+        <p>{{this.description}}</p>
+        </div>
+        <p id="comment-btn"><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
       </div>
     {{/each}}
 
