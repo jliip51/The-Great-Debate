@@ -184,10 +184,9 @@ footer {
 	margin-left: 5px;
 }
 
-#flex {
-	display:flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
+#allsearchpanels {
+	text-align: center;
+	font-family: 'Cutive Mono', monospace;
 }
 
 #commenttext {
