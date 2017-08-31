@@ -7,11 +7,12 @@ $(document).ready(function() {
   function handleNewCommentForm(event) {
     event.preventDefault();
     var userid = $('#userid').val().trim();
+    var postid = parseInt($('#postid').val().trim());
     var newComment = {
       body: $('#comment').val().trim(),
       links: $('#citedlink').val().trim(),
-      PostId: parseInt($('#postid').val().trim()),
-      UserId: $("#userid").val().trim()
+      PostId: postid,
+      UserId: userid
     }
     // if(!userid || userid === "") {
     //   newComment.UserId = "anonymous" //doesn't work with UUID DataType, has to be 36Char and unique//
@@ -23,6 +24,7 @@ $(document).ready(function() {
     $('#commentModal').modal('toggle');
 
     $.post("/add", newComment).then(function(data) {
+       window.location.href = '/post/' + postid;
        return data;
     }).catch(function(err) {
       console.log(err);
@@ -40,7 +42,7 @@ $(document).ready(function() {
     }
     $.post("/upvote", upvote).then(function(data) {
 
-      $('#comment' + id).removeClass('upvote').toggleClass('btn-success btn-danger');
+      $('#comment' + id).removeClass('upvote btn-success').addClass('btn-danger');
       $('#upvote' + id).html(newVoteCt);
     }).catch(function(err) {
       console.log(err);
