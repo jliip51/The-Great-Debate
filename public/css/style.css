@@ -65,7 +65,7 @@ body 	{
 }
 
 .text-wrap {
-	height: 75%;
+	height: 50%;
 }
 
 #comment-btn {
@@ -174,6 +174,11 @@ footer {
 
 #about, #threeposts, #alltopics  {
 	font-family: 'Cutive Mono', monospace;
+}
+
+#threeposts {
+	height:400px;
+	position:relative;
 }
 
 #alltopicstwo {
