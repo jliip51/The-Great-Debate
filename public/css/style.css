@@ -65,11 +65,17 @@ body 	{
 }
 
 .text-wrap {
-	height: 75%;
+	height: 50%;
 }
 
 #comment-btn {
 	margin-top: 10px;
+}
+
+.voteCt {
+	margin-top: 3px;
+	font-size: 18px;
+	color: green;
 }
 
 #live {
@@ -176,6 +182,11 @@ footer {
 	font-family: 'Cutive Mono', monospace;
 }
 
+#threeposts {
+	height:400px;
+	position:relative;
+}
+
 #alltopicstwo {
 	font-family: 'Cutive Mono', monospace;
   margin-top: 5px;
@@ -184,10 +195,9 @@ footer {
 	margin-left: 5px;
 }
 
-#flex {
-	display:flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
+#allsearchpanels {
+	text-align: center;
+	font-family: 'Cutive Mono', monospace;
 }
 
 #commenttext {

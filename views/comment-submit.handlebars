@@ -116,7 +116,7 @@
         <div class="form-group">
         <p id="loggedin" style="color: white">Logged in as: {{Username}}</p>
         </div>
-        <button type="submit" class="btn btn-success">Sign out</button>
+        <button type="submit" class="btn btn-primary">Sign out</button>
       </form>
       {{else}}
       <form class="navbar-form navbar-right" id="signInForm">
@@ -181,7 +181,8 @@
             <div class= "row">
 
               <div class= "col-md-2">
-                <button id="comment{{this.id}}" class="btn btn-primary btn-md upvote" data-postid="{{this.PostId}}" data-id="{{this.id}}" data-count="{{this.votes}}">Upvote</button>
+                <button id="comment{{this.id}}" class="btn btn-primary btn-md upvote"
+                data-postid="{{this.PostId}}" data-id="{{this.id}}" data-count="{{this.votes}}" data-user="{{this.User.id}}c">Upvote</button>
               </div>
               <div class= "col-md-3">
                 <p><h5><u>Total Upvotes:</u><span id="upvote{{this.id}}">{{this.votes}}</span></h5><p>
@@ -201,6 +202,7 @@
 </div>
 
 <footer class="text-center" id="footer">
+  <br>
   <p>&copy; 2017 The Great DB8</p>
 </footer>
 </div>

@@ -80,7 +80,7 @@
         <div class="form-group">
         <p id= "loggedin" style="color: white">Logged in as: {{username}}</p>
         </div>
-        <button type="submit" class="btn btn-success">Sign out</button>
+        <button type="submit" class="btn btn-primary">Sign out</button>
       </form>
       {{else}}
       <form class="navbar-form navbar-right" id="signInForm">
@@ -109,24 +109,29 @@
   </div>
 
   <h2 id="live">New Topics:</h2>
-  <div class="container">
-    <div class="row post-row">
-
-      {{#each post}}
-        <div id= "threeposts" class="col-md-4 center post-blocks">
-          <div class="text-wrap">
-          <h2>{{this.topic}}</h2>
-          <p>{{this.description}}</p>
+    <div class="container">
+      <div class="row">
+        {{#each post}}
+        <div class="col-md-4 center">
+          <div id= "threeposts" class="panel">
+            <div class="text-wrap">
+              <h2><strong><i>Topic:</strong></i></h2>
+              <h4><strong>{{this.topic}}</strong></h4>
+              <hr>
+              <p id="commenttext"><strong>{{this.description}}</strong></p>
+              <hr>
+              <p id="comment-btn"><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
+              <hr>
+            </div>
         </div>
-          <p id="comment-btn"><a class="btn btn-primary" href="/post/{{this.id}}" role="button">Comment &raquo;</a></p>
-        </div>
+      </div>
       {{/each}}
-
     </div>
   </div>
 </div>
 
 <footer class="text-center" id="footer">
+  <br>
   <p>&copy; 2017 The Great DB8</p>
 </footer>
 </div>

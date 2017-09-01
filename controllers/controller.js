@@ -22,7 +22,6 @@ router.post("/signup", function(req, res) {
   var username=req.body.username;
   var email=req.body.email;
   var password=req.body.password;
-  console.log(username,email,password);
   req.checkBody("username", "Name is required").notEmpty();
   req.checkBody("username", "username is required").notEmpty();
   req.checkBody("email", "Email is required").notEmpty();
@@ -41,8 +40,10 @@ router.post("/signup", function(req, res) {
       password: req.body.password
     }).then(function(dbresult) {
       res.render("home");
+    }).catch(function(err){
+      throw err;
     });
-  }
+  };
 });
 //Iterates through dbresult for posts to get unique category values to display in the dropdown//
 var uniqueCategories = function(dbresult, obj, cb) {
@@ -60,7 +61,6 @@ var uniqueCategories = function(dbresult, obj, cb) {
 }
 //Iterates through posts dbresults to get 3 results//
 var getThreePosts = function(dbresult, cb) {
-  console.log(dbresult)
   var postArr = [];
   for (i = dbresult.length - 1; i > dbresult.length - 4; i--) {
     postArr.push(dbresult[i]);
@@ -68,7 +68,6 @@ var getThreePosts = function(dbresult, cb) {
   var obj = {
     post: postArr
   }
-  console.log(obj);
   uniqueCategories(dbresult, obj, function(hbsObj) {
     return cb(hbsObj);
   });
@@ -102,7 +101,12 @@ router.get("/post/:id", isAuthenticated, function(req, res) {
     where: {
       id: req.params.id
     },
-    include: [{ model: db.Comments, include: [{ model: db.Users}]}]
+    include: [{ model: db.Comments,
+      include: [{ model: db.Users}]
+    }],
+    order: [
+      [ db.Comments, 'votes', 'DESC' ],
+    ]
   }).then(function(data) {
     var hbsObj = {
       Posts: data,
