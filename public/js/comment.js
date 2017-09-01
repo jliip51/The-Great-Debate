@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
   $(document).on("submit", "#commentForm", handleNewCommentForm);
-  // $(document).on("click", ".upvote", handleUpvote);
 
   //Comment Form Handler Function//
   function handleNewCommentForm(event) {
@@ -14,11 +13,6 @@ $(document).ready(function() {
       PostId: postid,
       UserId: userid
     }
-    // if(!userid || userid === "") {
-    //   newComment.UserId = "anonymous" //doesn't work with UUID DataType, has to be 36Char and unique//
-    // } else {
-    //   newComment.UserId = userid
-    // }
     $('#comment').val("");
     $('#citedlink').val("");
     $('#commentModal').modal('toggle');
@@ -30,7 +24,8 @@ $(document).ready(function() {
       console.log(err);
     });
   };
-
+  //Increments vote count in database for each comment. Incorporates session storage to prevent users from voting on
+  //comment more than once in any single browser session//
   $('.upvote').on('click', function() {
     var postid = $(this).attr('data-postid');
     var id = $(this).attr('data-id');

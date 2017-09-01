@@ -101,7 +101,12 @@ router.get("/post/:id", isAuthenticated, function(req, res) {
     where: {
       id: req.params.id
     },
-    include: [{ model: db.Comments, include: [{ model: db.Users}]}]
+    include: [{ model: db.Comments,
+      include: [{ model: db.Users}]
+    }],
+    order: [
+      [ db.Comments, 'votes', 'DESC' ],
+    ]
   }).then(function(data) {
     var hbsObj = {
       Posts: data,
