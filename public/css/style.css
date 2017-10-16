@@ -6,13 +6,15 @@
 }
 
 body 	{
-	/*background-image: url("/images/bkgrnd-gray.png");*/
+
 	background-image: url("/images/light.jpg");
 	background-position: 0px 0px;
 	background-repeat: repeat-x;
 	background-repeat: repeat-y;
 	animation: animatedBackground 80s linear infinite;
 }
+
+
 /*end animated background css*/
 
 .jumbotron {
